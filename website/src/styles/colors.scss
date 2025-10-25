@@ -1,0 +1,18 @@
+$mainColors: (
+  primary: (
+    background: hsl(32, 87%, 94%),
+    foreground: hsl(174, 21%, 15%),
+  ),
+  secondary: (
+    background: hsl(174, 21%, 20%),
+    foreground: hsl(0, 50%, 98%),
+  ),
+  tertiary: (
+    background: hsl(184, 66%, 28%),
+    foreground: hsl(0, 50%, 98%),
+  ),
+  inherit: (
+    background: inherit,
+    foreground: inherit,
+  ),
+);
