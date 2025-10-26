@@ -154,7 +154,7 @@
       Aufbau und Pflege unserere <Bold>Website</Bold>
     </ListElement>
     <ListElement>
-      <Bold>Optimierung</Bold> interner <Bold>Prozenne</Bold>
+      <Bold>Optimierung</Bold> interner <Bold>Prozesse</Bold>
     </ListElement>
     <ListElement>
       <Bold>Organisation</Bold> von <Bold>Projekten</Bold> und <Bold>Kooperationen</Bold>
