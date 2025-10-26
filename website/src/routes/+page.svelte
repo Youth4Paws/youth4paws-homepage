@@ -1,11 +1,11 @@
 <script>
   import Bold from "../components/text/Bold.svelte";
+  import Divider from "../components/text/Divider.svelte";
+  import List from "../components/text/List.svelte";
+  import ListElement from "../components/text/ListElement.svelte";
   import Paragraph from "../components/layout/Paragraph.svelte";
   import Section from "../components/layout/Section.svelte";
-    import List from "../components/text/List.svelte";
-    import ListElement from "../components/text/ListElement.svelte";
-    import Divider from "../components/text/Divider.svelte";
-    import Subtitle from "../components/text/Subtitle.svelte";
+  import Subtitle from "../components/text/Subtitle.svelte";
 </script>
 
 <Section title="Wer sind wir?" tag="introduction">
@@ -127,18 +127,18 @@
   </Paragraph>
   <Paragraph>
     Dein Engagement kann dabei ganz unterschiedlich aussehen:
-    <List>
-      <ListElement>
-        Unterstützung bei <Bold>Aufräum- oder Renovierungsaktionen</Bold>
-      </ListElement>
-      <ListElement>
-        Aufbau oder Pflege von <Bold>Websites und Social Media</Bold>
-      </ListElement>
-      <ListElement>
-        Hilfe bei <Bold>organisatorischen oder administrativen Aufgaben</Bold>
-      </ListElement>
-    </List>
   </Paragraph>
+  <List>
+    <ListElement>
+      Unterstützung bei <Bold>Aufräum- oder Renovierungsaktionen</Bold>
+    </ListElement>
+    <ListElement>
+      Aufbau oder Pflege von <Bold>Websites und Social Media</Bold>
+    </ListElement>
+    <ListElement>
+      Hilfe bei <Bold>organisatorischen oder administrativen Aufgaben</Bold>
+    </ListElement>
+  </List>
 
   <Divider/>
 

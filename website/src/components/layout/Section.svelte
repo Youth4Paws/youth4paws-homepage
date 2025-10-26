@@ -28,7 +28,8 @@
     flex-direction: column;
     gap: dimensions.$gapSmall;
     align-items: center;
-    padding: dimensions.$gapLarge;
+    padding: dimensions.$gapLarge max(dimensions.$gap, calc((100% - 50em) / 2));
+    text-align: center;
   }
 
   @each $key, $val in colors.$mainColors {

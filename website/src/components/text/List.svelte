@@ -22,6 +22,8 @@
 
     font-weight: dimensions.$fontWeight;
 		font-size: dimensions.$fontSize;
+
+    text-align: start;
   }
 </style>
 
