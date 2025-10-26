@@ -25,6 +25,10 @@
 
     text-align: start;
   }
+
+  ul {
+    list-style: none;
+  }
 </style>
 
 {#if ordered}

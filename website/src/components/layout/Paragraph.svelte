@@ -11,6 +11,7 @@
 
     font-weight: dimensions.$fontWeight;
 		font-size: dimensions.$fontSize;
+    line-height: dimensions.$fontLineHeight;
 
     text-align: start;
 
