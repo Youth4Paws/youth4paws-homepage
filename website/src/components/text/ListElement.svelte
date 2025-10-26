@@ -3,9 +3,11 @@
 </script>
 
 <style lang="scss">
-
+  li {
+    hyphens: auto;
+  }
 </style>
 
-<li>
+<li lang="de">
   {@render children()}
 </li>

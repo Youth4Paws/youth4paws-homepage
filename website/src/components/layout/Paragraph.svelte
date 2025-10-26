@@ -13,9 +13,11 @@
 		font-size: dimensions.$fontSize;
 
     text-align: start;
+
+    hyphens: auto;
   }
 </style>
 
-<p>
+<p lang="de">
   {@render children()}
 </p>
