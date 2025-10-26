@@ -1,6 +1,8 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 
+	import { PUBLIC_WEBSITE_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN } from "$env/static/public";
+
 	let { children } = $props();
 </script>
 
@@ -56,6 +58,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
 <main>

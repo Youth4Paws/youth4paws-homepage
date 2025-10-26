@@ -15,7 +15,7 @@ RUN bun install
 FROM base AS build
 WORKDIR /app
 RUN apk add make
-COPY Makefile .npmrc svelte.config.js tsconfig.json vite.config.ts package.json ./
+COPY Makefile .env .npmrc svelte.config.js tsconfig.json vite.config.ts package.json ./
 COPY static static
 COPY src src
 COPY --from=devdependencies /app/node_modules ./node_modules
