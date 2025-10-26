@@ -171,8 +171,10 @@
   </Paragraph>
 </Section>
 
+<!--
 <Section title="Our Team" tag="team" color="tertiary">
   <Paragraph>
     Vestibulum condimentum, est nec pellentesque imperdiet, magna mauris tincidunt mauris, non sodales nulla ligula at diam. Vivamus pharetra tincidunt libero ac dapibus. Suspendisse cursus diam a odio feugiat, dignissim ullamcorper libero eleifend. Fusce a lectus posuere ex suscipit condimentum ac vel enim. Ut viverra suscipit auctor. Fusce efficitur orci vitae ex dignissim, nec porttitor lacus ultrices. Nulla vestibulum ut augue at tincidunt. Nullam ut porttitor diam, at placerat nibh. Aenean tincidunt ligula rutrum massa facilisis bibendum. Nulla facilisi. Ut lobortis orci eros, et vestibulum lectus varius et. Nam tincidunt risus non ante vehicula, et imperdiet sapien aliquet. 
   </Paragraph>
 </Section>
+-->

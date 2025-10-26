@@ -1,0 +1,19 @@
+$breakpoints: (
+  phone: 640px, 
+  tablet: 768px, 
+  desktop: 1024px
+) !default;
+
+@mixin phone {
+  @media screen and (max-width: 800px) { @content; }
+}
+@mixin desktop {
+  @media screen and (min-width: 801px) and (max-width: 1999px) { @content; }
+}
+@mixin large {
+  @media screen and (min-width: 2000px) { @content; }
+}
+@mixin desktop-and-large {
+  @media screen and (min-width: 801px) { @content; }
+}
+

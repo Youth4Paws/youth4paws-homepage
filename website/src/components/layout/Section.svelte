@@ -22,6 +22,7 @@
 
   @use "../../styles/colors.scss";
   @use "../../styles/dimensions.scss";
+  @use "../../styles/media.scss";
   
   section {
     display: flex;  
@@ -30,14 +31,36 @@
     align-items: center;
     padding: dimensions.$gapLarge max(dimensions.$gap, calc((100% - 50em) / 2));
     text-align: center;
+    break-inside: avoid;
   }
-
-  @each $key, $val in colors.$mainColors {
-    section.#{$key} {
-      background-color: map.get($val, "background");
-      color: map.get($val, "foreground");
+  @include media.phone {
+    section:nth-child(4n) {
+      background-color: map.get(colors.$mainColors, "tertiary", "background");
+      color: map.get(colors.$mainColors, "tertiary", "foreground");
+    }
+    section:nth-child(4n+2) {
+      background-color: map.get(colors.$mainColors, "secondary", "background");
+      color: map.get(colors.$mainColors, "secondary", "foreground");
     }
   }
+  @include media.desktop-and-large {
+    section:nth-child(4n+2) {
+      background-color: map.get(colors.$mainColors, "secondary", "background");
+      color: map.get(colors.$mainColors, "secondary", "foreground");
+    }
+    section:nth-child(4n+3) {
+      background-color: map.get(colors.$mainColors, "tertiary", "background");
+      color: map.get(colors.$mainColors, "tertiary", "foreground");
+    }
+  }
+
+  //@each $key, $val in colors.$mainColors {
+  //  section.#{$key} {
+  //    background-color: map.get($val, "background");
+  //    color: map.get($val, "foreground");
+  //  }
+  //}
+
 </style>
 
 <section
