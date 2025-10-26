@@ -29,9 +29,11 @@
     flex-direction: column;
     gap: dimensions.$gapSmall;
     align-items: center;
-    padding: dimensions.$gapLarge max(dimensions.$gap, calc((100% - 50em) / 2));
+    $padding: max(dimensions.$gap, calc((100% - 50em) / 2));
+    padding: dimensions.$gapLarge $padding;
     text-align: center;
     break-inside: avoid;
+		overflow-x: hidden;
   }
   @include media.phone {
     section:nth-child(4n) {
