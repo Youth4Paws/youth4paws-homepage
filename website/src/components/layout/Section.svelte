@@ -35,7 +35,7 @@
     break-inside: avoid;
 		overflow-x: hidden;
   }
-  @include media.phone {
+  //@include media.phone {
     section:nth-child(4n) {
       background-color: map.get(colors.$mainColors, "tertiary", "background");
       color: map.get(colors.$mainColors, "tertiary", "foreground");
@@ -44,17 +44,17 @@
       background-color: map.get(colors.$mainColors, "secondary", "background");
       color: map.get(colors.$mainColors, "secondary", "foreground");
     }
-  }
-  @include media.desktop-and-large {
-    section:nth-child(4n+2) {
-      background-color: map.get(colors.$mainColors, "secondary", "background");
-      color: map.get(colors.$mainColors, "secondary", "foreground");
-    }
-    section:nth-child(4n+3) {
-      background-color: map.get(colors.$mainColors, "tertiary", "background");
-      color: map.get(colors.$mainColors, "tertiary", "foreground");
-    }
-  }
+  //}
+  //@include media.desktop-and-large {
+  //  section:nth-child(4n+2) {
+  //    background-color: map.get(colors.$mainColors, "secondary", "background");
+  //    color: map.get(colors.$mainColors, "secondary", "foreground");
+  //  }
+  //  section:nth-child(4n+3) {
+  //    background-color: map.get(colors.$mainColors, "tertiary", "background");
+  //    color: map.get(colors.$mainColors, "tertiary", "foreground");
+  //  }
+  //}
 
   //@each $key, $val in colors.$mainColors {
   //  section.#{$key} {

@@ -38,15 +38,15 @@
 		//}
 
 		// Approach 2
-		display: grid;
-		grid-template-rows: auto;
-		grid-auto-rows: auto;
-		@include media.phone {
-			grid-template-columns: 1fr;
-		}
-		@include media.desktop {
-			grid-template-columns: 1fr 1fr;
-		}
+		//display: grid;
+		//grid-template-rows: auto;
+		//grid-auto-rows: auto;
+		//@include media.phone {
+		//	grid-template-columns: 1fr;
+		//}
+		//@include media.desktop {
+		//	grid-template-columns: 1fr 1fr;
+		//}
 		//@include media.large {
 		//	grid-template-columns: 1fr 1fr 1fr;
 		//}
