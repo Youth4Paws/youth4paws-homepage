@@ -3,7 +3,7 @@
 </script>
 
 <style lang="scss">
-  @use "../../styles/dimensions.scss";
+  @use "../../styles/constants/dimensions.scss";
 
   b {
     font-weight: dimensions.$fontWeightBold;

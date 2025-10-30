@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss">
-  @use "../../styles/dimensions.scss";
+  @use "../../styles/constants/dimensions.scss";
 
   ol, ul {
     width: 100%;

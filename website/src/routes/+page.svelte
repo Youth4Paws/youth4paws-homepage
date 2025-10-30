@@ -6,7 +6,14 @@
   import Paragraph from "../components/layout/Paragraph.svelte";
   import Section from "../components/layout/Section.svelte";
   import Subtitle from "../components/text/Subtitle.svelte";
+  import Splash from "../components/layout/Splash.svelte";
 </script>
+
+<Splash>
+  <Paragraph>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi nisi, fringilla eget ipsum vel, scelerisque scelerisque mi. Curabitur vestibulum, tortor sit amet tempus tincidunt, urna erat semper nulla, eu aliquet nunc lacus in orci. Nam in lorem dictum libero aliquam laoreet. Cras viverra purus mollis justo vestibulum interdum. Pellentesque eget mi sapien.
+  </Paragraph>
+</Splash>
 
 <Section title="Wer sind wir?" tag="introduction">
   <Paragraph>

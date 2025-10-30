@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-    import Title from "../text/Title.svelte";
+  import Title from "../text/Title.svelte";
 
   interface Props {
     title: string;
@@ -20,20 +20,18 @@
 <style lang="scss">
   @use "sass:map";
 
-  @use "../../styles/colors.scss";
-  @use "../../styles/dimensions.scss";
-  @use "../../styles/media.scss";
+  @use "../../styles/constants/colors.scss";
+  @use "../../styles/constants/dimensions.scss";
+  @use "../../styles/constants/media.scss";
+
+  @use "../../styles/mixins/layout.scss";
   
   section {
     display: flex;  
     flex-direction: column;
     gap: dimensions.$gapSmall;
-    align-items: center;
-    $padding: max(dimensions.$gap, calc((100% - 50em) / 2));
-    padding: dimensions.$gapLarge $padding;
-    text-align: center;
-    break-inside: avoid;
-		overflow-x: hidden;
+
+    @include layout.section-dimensioning;
   }
   //@include media.phone {
     section:nth-child(4n) {

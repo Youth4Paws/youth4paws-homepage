@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { PawPrint } from "lucide-svelte";
+  import { PawPrint } from "lucide-svelte";
 
 	let { children } = $props();
 </script>
 
 <style lang="scss">
-  @use "../../styles/dimensions.scss";
+  @use "../../styles/constants/dimensions.scss";
 
   li {
     hyphens: auto;

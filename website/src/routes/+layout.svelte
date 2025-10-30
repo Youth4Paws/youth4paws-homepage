@@ -9,9 +9,9 @@
 <style lang="scss">
   @use "sass:map";
 
-	@use "../styles/colors.scss";
-	@use "../styles/dimensions.scss";
-	@use "../styles/media.scss";
+	@use "../styles/constants/colors.scss";
+	@use "../styles/constants/dimensions.scss";
+	@use "../styles/constants/media.scss";
 
 	:global(*) {
 		font-family: "Atkinson Hyperlegible Next", sans-serif;

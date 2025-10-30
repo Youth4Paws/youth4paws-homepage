@@ -9,11 +9,8 @@ $fontLineHeight: 1.3;
 $fontWeight: 400;
 $fontWeightBold: 800;
 
-$fontSizeTitle: 2.5rem;
-$fontWeightTitle: 800;
+// <h1> <h2> <h3> <...>
+$fontSizesTitle: 2.5rem, 2rem, 1.7rem 1.2rem;
+$fontWeightsTitle: 400, 400, 400, 400;
 
-$fontSizeSubtitle: 2rem;
-$fontWeightSubtitle: 800;
-
-$fontSizeSubsubtitle: 1.7rem;
-$fontWeightSubsubtitle: 800;
+$borderRadius: 2em;

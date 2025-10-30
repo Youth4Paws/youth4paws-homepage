@@ -3,7 +3,7 @@
 </script>
 
 <style lang="scss">
-  @use "../../styles/dimensions.scss";
+  @use "../../styles/constants/dimensions.scss";
 
   p {
     width: 100%;
