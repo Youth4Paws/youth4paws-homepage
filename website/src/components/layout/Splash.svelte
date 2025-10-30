@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Snippet } from "svelte";
+  import { onMount, type Snippet } from "svelte";
   import Title from "../text/Title.svelte";
 
   interface Props {
@@ -15,6 +15,13 @@
     imgAlt,
     children
   } = $props();
+
+  // Potentially overcomplicated but I wanted to avoid nesting too many elements wherever possible.
+  let descriptionWrapper: HTMLElement;
+  let wrap = $state<boolean>(true);
+  onMount(() => {
+    wrap = descriptionWrapper.children.length > 1;
+  });
 </script>
 
 <style lang="scss">
@@ -47,8 +54,16 @@
     }
   }
 
+  :global(session > h1) {
+    grid-area: title
+  }
+
   div.description {
     grid-area: description;
+  }
+
+  div.unwrap {
+    display: contents;
   }
 
   div.buttons {
@@ -71,7 +86,7 @@
     {title}
   </Title>
 
-  <div class="description">
+  <div bind:this={descriptionWrapper} class="description" class:unwrap={!wrap}>
     {@render children()}
   </div>
 

@@ -17,7 +17,7 @@
     left: -.7em;
     transform: translateX(-50%);
     text-align: center;
-    display: grid;
+    display: flex;
     align-items: center;
     height: dimensions.$fontSize * dimensions.$fontLineHeight;
   } 
