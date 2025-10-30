@@ -9,7 +9,7 @@
   import Splash from "../components/layout/Splash.svelte";
 </script>
 
-<Splash>
+<Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi nisi, fringilla eget ipsum vel, scelerisque scelerisque mi. Curabitur vestibulum, tortor sit amet tempus tincidunt, urna erat semper nulla, eu aliquet nunc lacus in orci. Nam in lorem dictum libero aliquam laoreet. Cras viverra purus mollis justo vestibulum interdum. Pellentesque eget mi sapien.
   </Paragraph>

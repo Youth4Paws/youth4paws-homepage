@@ -1,7 +1,20 @@
 <script lang="ts">
+    import type { Snippet } from "svelte";
   import Title from "../text/Title.svelte";
 
-	let { children } = $props();
+  interface Props {
+    title: string;
+    imgSrc: string;
+    imgAlt: string;
+    children: Snippet;
+  }
+
+	let {
+    title,
+    imgSrc,
+    imgAlt,
+    children
+  } = $props();
 </script>
 
 <style lang="scss">
@@ -55,7 +68,7 @@
 
 <section>
   <Title>
-    Youth4Paws
+    {title}
   </Title>
 
   <div class="description">
@@ -67,7 +80,7 @@
   </div>
 
   <img
-    src="/img/logo.svg"
-    alt="Youth4Paws Logo"
+    src={imgSrc}
+    alt={imgAlt}
   />
 </section>
