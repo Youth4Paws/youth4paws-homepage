@@ -74,7 +74,7 @@
     display: flex;
     flex-direction: row;
     gap: dimensions.$gapSmall;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
   }
 
