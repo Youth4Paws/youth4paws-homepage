@@ -21,7 +21,7 @@
   @use "../../styles/constants/media.scss";
 
   * {
-    font-family: "Titan One", sans-serif;
+    font-family: "Fugaz One", sans-serif;
     font-style: normal;
     margin: 0;
     max-width: 100%;

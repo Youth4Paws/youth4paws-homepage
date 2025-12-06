@@ -1,20 +1,23 @@
 <script lang="ts">
   import { onMount, type Snippet } from "svelte";
   import Title from "../text/Title.svelte";
+  import Button from "../interactive/Button.svelte";
 
   interface Props {
     title: string;
     imgSrc: string;
     imgAlt: string;
     children: Snippet;
+    buttons?: Snippet;
   }
 
 	let {
     title,
     imgSrc,
     imgAlt,
-    children
-  } = $props();
+    children,
+    buttons
+  }: Props = $props();
 
   // Potentially overcomplicated but I wanted to avoid nesting too many elements wherever possible.
   let descriptionWrapper: HTMLElement;
@@ -68,6 +71,11 @@
 
   div.buttons {
     grid-area: buttons;
+    display: flex;
+    flex-direction: row;
+    gap: dimensions.$gapSmall;
+    justify-items: center;
+    align-items: center;
   }
 
   img {
@@ -90,9 +98,11 @@
     {@render children()}
   </div>
 
+  {#if buttons !== undefined}
   <div class="buttons">
-    Buttons go here
+    {@render buttons()}
   </div>
+  {/if}
 
   <img
     src={imgSrc}

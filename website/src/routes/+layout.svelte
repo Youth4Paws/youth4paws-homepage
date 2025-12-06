@@ -2,8 +2,22 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	import { PUBLIC_WEBSITE_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN } from "$env/static/public";
+	import { beforeNavigate, afterNavigate } from "$app/navigation";
+	import { tick } from "svelte";
+  import { browser } from "$app/environment";
 
 	let { children } = $props();
+
+  // Fix SvelteKit scrolling issue
+  beforeNavigate(async () => {
+    if (!browser) return;
+    document.getElementsByTagName("html")[0].classList.add("pageSwitch");
+  })
+  afterNavigate(async () => {
+    if (!browser) return;
+    await tick();
+    document.getElementsByTagName("html")[0].classList.remove("pageSwitch");
+  });
 </script>
 
 <style lang="scss">
@@ -23,6 +37,17 @@
 	:global(body) {
 		margin: 0;
 	}
+
+	:global(html) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  :global(html.pageSwitch) {
+    scroll-behavior: auto;
+  }
 
   main {
     width: 100%;

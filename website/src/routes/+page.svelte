@@ -7,12 +7,17 @@
   import Section from "../components/layout/Section.svelte";
   import Subtitle from "../components/text/Subtitle.svelte";
   import Splash from "../components/layout/Splash.svelte";
+  import Button from "../components/interactive/Button.svelte";
 </script>
 
 <Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi nisi, fringilla eget ipsum vel, scelerisque scelerisque mi. Curabitur vestibulum, tortor sit amet tempus tincidunt, urna erat semper nulla, eu aliquet nunc lacus in orci. Nam in lorem dictum libero aliquam laoreet. Cras viverra purus mollis justo vestibulum interdum. Pellentesque eget mi sapien.
   </Paragraph>
+  {#snippet buttons()}
+    <Button href="#volunteer">Mitmachen</Button>
+    <Button href="#cooperation">Kooperation Anfragen</Button>
+  {/snippet}
 </Splash>
 
 <Section title="Wer sind wir?" tag="introduction">
