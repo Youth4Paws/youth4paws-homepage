@@ -8,6 +8,8 @@
   import Subtitle from "../components/text/Subtitle.svelte";
   import Splash from "../components/layout/Splash.svelte";
   import Button from "../components/interactive/Button.svelte";
+    import Card from "../components/layout/Card.svelte";
+    import CardContainer from "../components/layout/CardContainer.svelte";
 </script>
 
 <Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
@@ -76,51 +78,53 @@
     Wir bieten Tierschutzorganisationen verschiedene Formen der Zusammenarbeit an, je nach Bedarf und verfügbaren Kapazitäten.
   </Paragraph>
 
-  <Divider/>
+  <CardContainer>
+    <Card>
+      <Subtitle>1. Dauersupport</Subtitle>
+      <Paragraph>
+        Im Rahmen des Dauersupports stehen wir Organisationen <Bold>regelmäßig und flexibel</Bold> bei verschiedensten Fragestellungen zur Seite — sei es bei IT- und Kommunikationsthemen, organisatorischen Herausforderungen oder rechtlichen Fragen.
+      </Paragraph>
+      <Paragraph>
+        Man kann sich diese Form der Kooperation vorstellen, als wären wir <Bold>eine zusätzliche helfende Hand</Bold> oder <Bold>weitere ehrenamtliche Mitarbeitende</Bold> innerhalb Ihrer Organisation.
+      </Paragraph>
+      <Paragraph>
+        Da unsere Ressourcen begrenzt sind, können wir diesen Support nur in <Bold>besonders dringenden oder herausfordernden Fällen</Bold> anbieten — also dort, wo Hilfe akut benötigt wird.
+      </Paragraph>
+    </Card>
 
-  <Subtitle>1. Dauersupport</Subtitle>
-  <Paragraph>
-    Im Rahmen des Dauersupports stehen wir Organisationen <Bold>regelmäßig und flexibel</Bold> bei verschiedensten Fragestellungen zur Seite — sei es bei IT- und Kommunikationsthemen, organisatorischen Herausforderungen oder rechtlichen Fragen.
-  </Paragraph>
-  <Paragraph>
-    Man kann sich diese Form der Kooperation vorstellen, als wären wir <Bold>eine zusätzliche helfende Hand</Bold> oder <Bold>weitere ehrenamtliche Mitarbeitende</Bold> innerhalb Ihrer Organisation.
-  </Paragraph>
-  <Paragraph>
-    Da unsere Ressourcen begrenzt sind, können wir diesen Support nur in <Bold>besonders dringenden oder herausfordernden Fällen</Bold> anbieten — also dort, wo Hilfe akut benötigt wird.
-  </Paragraph>
+    <Card>
+      <Subtitle>2. Projektbasierte Zusammenarbeit</Subtitle>
+      <Paragraph>
+        Bei dieser Form der Kooperation unterstützen wir <Bold>gezielt in einzelnen Projekten</Bold> — zum Beispiel beim Aufbau einer Website, bei Renovierungsarbeiten oder bei Recherche- und Organisationsaufgaben.
+      </Paragraph>
+      <Paragraph>
+        Die Zusammenarbeit endet nach erfolgreichem Projektabschluss, kann aber jederzeit für neue Projekte fortgesetzt werden.
+      </Paragraph>
+    </Card>
 
-  <Divider/>
+    <Card>
+      <Subtitle>3. Volunteer Days</Subtitle>
+      <Paragraph>
+        Wir organisieren <Bold>freiwillige Einsatztage</Bold>, bei denen unsere Mitglieder vor Ort mit anpacken — etwa bei Aufräumaktionen, Instandhaltungsarbeiten oder anderen praktischen Projekten.
+      </Paragraph>
+      <Paragraph>
+        Diese Tage bieten nicht nur konkrete Hilfe, sondern auch die Möglichkeit, <Bold>unsere Mitglieder</Bold> direkt mit <Bold>Ihrer Arbeit und Ihrem Engagement</Bold> für Tiere zu <Bold>verbinden</Bold>.
+      </Paragraph>
+    </Card>
 
-  <Subtitle>2. Projektbasierte Zusammenarbeit</Subtitle>
-  <Paragraph>
-    Bei dieser Form der Kooperation unterstützen wir <Bold>gezielt in einzelnen Projekten</Bold> — zum Beispiel beim Aufbau einer Website, bei Renovierungsarbeiten oder bei Recherche- und Organisationsaufgaben.
-  </Paragraph>
-  <Paragraph>
-    Die Zusammenarbeit endet nach erfolgreichem Projektabschluss, kann aber jederzeit für neue Projekte fortgesetzt werden.
-  </Paragraph>
-
-  <Divider/>
-
-  <Subtitle>3. Volunteer Days</Subtitle>
-  <Paragraph>
-    Wir organisieren <Bold>freiwillige Einsatztage</Bold>, bei denen unsere Mitglieder vor Ort mit anpacken — etwa bei Aufräumaktionen, Instandhaltungsarbeiten oder anderen praktischen Projekten.
-  </Paragraph>
-  <Paragraph>
-    Diese Tage bieten nicht nur konkrete Hilfe, sondern auch die Möglichkeit, <Bold>unsere Mitglieder</Bold> direkt mit <Bold>Ihrer Arbeit und Ihrem Engagement</Bold> für Tiere zu <Bold>verbinden</Bold>.
-  </Paragraph>
-
-  <Divider/>
-
-  <Subtitle>4. Awareness-Partnerschaft</Subtitle>
-  <Paragraph>
-    Im Rahmen einer Awareness-Partnerschaft helfen wir dabei, <Bold>Ihre Organisation sichtbarer zu machen</Bold>.
-  </Paragraph>
-  <Paragraph>
-    Wir erzählen auf unserer Website und in unseren Social-Media-Kanälen <Bold>Geschichten aus Ihrem Alltag</Bold>, stellen Ihre Mission vor und machen auf Ihre Arbeit aufmerksam.
-  </Paragraph>
-  <Paragraph>
-    Darüber hinaus freuen wir uns, wenn Sie sich im Gegenzug beispielsweise durch <Bold>Gastvorträge</Bold> oder <Bold>Einblicke in Ihre Arbeit</Bold> an unserem Netzwerk beteiligen.
-  </Paragraph>
+    <Card>
+      <Subtitle>4. Awareness-Partnerschaft</Subtitle>
+      <Paragraph>
+        Im Rahmen einer Awareness-Partnerschaft helfen wir dabei, <Bold>Ihre Organisation sichtbarer zu machen</Bold>.
+      </Paragraph>
+      <Paragraph>
+        Wir erzählen auf unserer Website und in unseren Social-Media-Kanälen <Bold>Geschichten aus Ihrem Alltag</Bold>, stellen Ihre Mission vor und machen auf Ihre Arbeit aufmerksam.
+      </Paragraph>
+      <Paragraph>
+        Darüber hinaus freuen wir uns, wenn Sie sich im Gegenzug beispielsweise durch <Bold>Gastvorträge</Bold> oder <Bold>Einblicke in Ihre Arbeit</Bold> an unserem Netzwerk beteiligen.
+      </Paragraph>
+    </Card>
+  </CardContainer>
 </Section>
 
 <Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer" color="secondary">
@@ -131,56 +135,58 @@
     Grundsätzlich unterscheiden wir zwei Formen der Mitarbeit. Du kannst dich entweder <Bold>direkt in Tierschutzprojekten engagieren</Bold> oder <Bold>intern in unserer Initiative mitwirken</Bold> (oder Beides!).
   </Paragraph>
 
-  <Divider/>
+  <CardContainer>
+    <Card>
+      <Subtitle>1. Unterstützung in Tierschutzprojekten</Subtitle>
+      <Paragraph>
+        In dieser Rolle arbeitest du <Bold>direkt mit unseren Partnerorganisationen</Bold> zusammen — also mit Tierheimen, Tierrettungen oder anderen Tierschutzvereinen.
+      </Paragraph>
+      <Paragraph>
+        Dein Engagement kann dabei ganz unterschiedlich aussehen:
+      </Paragraph>
+      <List>
+        <ListElement>
+          Unterstützung bei <Bold>Aufräum- oder Renovierungsaktionen</Bold>
+        </ListElement>
+        <ListElement>
+          Aufbau oder Pflege von <Bold>Websites und Social Media</Bold>
+        </ListElement>
+        <ListElement>
+          Hilfe bei <Bold>organisatorischen oder administrativen Aufgaben</Bold>
+        </ListElement>
+      </List>
+    </Card>
 
-  <Subtitle>1. Unterstützung in Tierschutzprojekten</Subtitle>
-  <Paragraph>
-    In dieser Rolle arbeitest du <Bold>direkt mit unseren Partnerorganisationen</Bold> zusammen — also mit Tierheimen, Tierrettungen oder anderen Tierschutzvereinen.
-  </Paragraph>
-  <Paragraph>
-    Dein Engagement kann dabei ganz unterschiedlich aussehen:
-  </Paragraph>
-  <List>
-    <ListElement>
-      Unterstützung bei <Bold>Aufräum- oder Renovierungsaktionen</Bold>
-    </ListElement>
-    <ListElement>
-      Aufbau oder Pflege von <Bold>Websites und Social Media</Bold>
-    </ListElement>
-    <ListElement>
-      Hilfe bei <Bold>organisatorischen oder administrativen Aufgaben</Bold>
-    </ListElement>
-  </List>
-
-  <Divider/>
-
-  <Subtitle>2. Interne Mitarbeit</Subtitle>
-  <Paragraph>
-    Hier unterstützt du die <Bold>Organisation und Weiterentwicklung unserer Initiative</Bold> selbst.
-  </Paragraph>
-  <Paragraph>
-    Das bedeutet, du arbeitest an Themen wie
-  </Paragraph>
-  <List>
-    <ListElement>
-      Aufbau und Pflege unserere <Bold>Website</Bold>
-    </ListElement>
-    <ListElement>
-      <Bold>Optimierung</Bold> interner <Bold>Prozesse</Bold>
-    </ListElement>
-    <ListElement>
-      <Bold>Organisation</Bold> von <Bold>Projekten</Bold> und <Bold>Kooperationen</Bold>
-    </ListElement>
-    <ListElement>
-      Unterstützung beim Aufbau unserer <Bold>Social Media Kanäle</Bold>
-    </ListElement>
-    <ListElement>
-      <Bold>Kommunikation</Bold> innerhalb des <Bold>Teams</Bold>
-    </ListElement>
-  </List>
-  <Paragraph>
-    Diese Rolle ist ideal für alle, die <Bold>strategisch und strukturell</Bold> mitgestalten möchten. Wir erwarten hierbei ein regelmäßiges Engagement von etwa <Bold>2–3 Stunden pro Woche</Bold>. Da wir uns aufeinander verlassen müssen, legen wir großen Wert auf <Bold>Verbindlichkeit und Zuverlässigkeit</Bold>. Nur so können wir gemeinsam wirkungsvoll arbeiten.
-  </Paragraph>
+    <Card>
+      <Subtitle>2. Interne Mitarbeit</Subtitle>
+      <Paragraph>
+        Hier unterstützt du die <Bold>Organisation und Weiterentwicklung unserer Initiative</Bold> selbst.
+      </Paragraph>
+      <Paragraph>
+        Das bedeutet, du arbeitest an Themen wie
+      </Paragraph>
+      <List>
+        <ListElement>
+          Aufbau und Pflege unserere <Bold>Website</Bold>
+        </ListElement>
+        <ListElement>
+          <Bold>Optimierung</Bold> interner <Bold>Prozesse</Bold>
+        </ListElement>
+        <ListElement>
+          <Bold>Organisation</Bold> von <Bold>Projekten</Bold> und <Bold>Kooperationen</Bold>
+        </ListElement>
+        <ListElement>
+          Unterstützung beim Aufbau unserer <Bold>Social Media Kanäle</Bold>
+        </ListElement>
+        <ListElement>
+          <Bold>Kommunikation</Bold> innerhalb des <Bold>Teams</Bold>
+        </ListElement>
+      </List>
+      <Paragraph>
+        Diese Rolle ist ideal für alle, die <Bold>strategisch und strukturell</Bold> mitgestalten möchten. Wir erwarten hierbei ein regelmäßiges Engagement von etwa <Bold>2–3 Stunden pro Woche</Bold>. Da wir uns aufeinander verlassen müssen, legen wir großen Wert auf <Bold>Verbindlichkeit und Zuverlässigkeit</Bold>. Nur so können wir gemeinsam wirkungsvoll arbeiten.
+      </Paragraph>
+    </Card>
+  </CardContainer>
 </Section>
 
 <!--
