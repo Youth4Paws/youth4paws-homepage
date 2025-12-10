@@ -14,7 +14,7 @@
 
 <Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
   <Paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi nisi, fringilla eget ipsum vel, scelerisque scelerisque mi. Curabitur vestibulum, tortor sit amet tempus tincidunt, urna erat semper nulla, eu aliquet nunc lacus in orci. Nam in lorem dictum libero aliquam laoreet. Cras viverra purus mollis justo vestibulum interdum. Pellentesque eget mi sapien.
+    Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
     <Button href="#volunteer">Mitmachen</Button>
