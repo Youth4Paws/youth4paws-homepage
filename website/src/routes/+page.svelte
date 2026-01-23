@@ -1,6 +1,5 @@
 <script>
   import Bold from "../components/text/Bold.svelte";
-  import Divider from "../components/text/Divider.svelte";
   import List from "../components/text/List.svelte";
   import ListElement from "../components/text/ListElement.svelte";
   import Paragraph from "../components/layout/Paragraph.svelte";
@@ -8,8 +7,18 @@
   import Subtitle from "../components/text/Subtitle.svelte";
   import Splash from "../components/layout/Splash.svelte";
   import Button from "../components/interactive/Button.svelte";
-    import Card from "../components/layout/Card.svelte";
-    import CardContainer from "../components/layout/CardContainer.svelte";
+  import Card from "../components/layout/Card.svelte";
+  import CardContainer from "../components/layout/CardContainer.svelte";
+  import ContactModal from "../components/layout/ContactModal.svelte";
+  
+  let showContactModal = $state(false);
+  
+  const volunteerFormUrl = "https://forms.google.com/YOUR_VOLUNTEER_FORM_ID";
+  
+  function openContactModal() {
+    console.log("Opening modal...");
+    showContactModal = true;
+  }
 </script>
 
 <Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
@@ -17,10 +26,12 @@
     Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
-    <Button href="#volunteer">Mitmachen</Button>
-    <Button href="#cooperation">Kooperation Anfragen</Button>
+    <Button href={volunteerFormUrl} variant="primary">Mitmachen</Button>
+    <Button variant="secondary" onclick={openContactModal}>Unterstützung anfragen</Button>
   {/snippet}
 </Splash>
+
+<ContactModal bind:isOpen={showContactModal} />
 
 <Section title="Wer sind wir?" tag="introduction">
   <Paragraph>
@@ -188,11 +199,3 @@
     </Card>
   </CardContainer>
 </Section>
-
-<!--
-<Section title="Our Team" tag="team" color="tertiary">
-  <Paragraph>
-    Vestibulum condimentum, est nec pellentesque imperdiet, magna mauris tincidunt mauris, non sodales nulla ligula at diam. Vivamus pharetra tincidunt libero ac dapibus. Suspendisse cursus diam a odio feugiat, dignissim ullamcorper libero eleifend. Fusce a lectus posuere ex suscipit condimentum ac vel enim. Ut viverra suscipit auctor. Fusce efficitur orci vitae ex dignissim, nec porttitor lacus ultrices. Nulla vestibulum ut augue at tincidunt. Nullam ut porttitor diam, at placerat nibh. Aenean tincidunt ligula rutrum massa facilisis bibendum. Nulla facilisi. Ut lobortis orci eros, et vestibulum lectus varius et. Nam tincidunt risus non ante vehicula, et imperdiet sapien aliquet. 
-  </Paragraph>
-</Section>
--->
