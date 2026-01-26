@@ -1,6 +1,5 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { PUBLIC_WEBSITE_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN } from "$env/static/public";
 	import { beforeNavigate, afterNavigate } from "$app/navigation";
 	import { tick } from "svelte";
 	import { browser } from "$app/environment";
@@ -22,7 +21,6 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
 <Navigation />
@@ -104,7 +102,7 @@
 	.footer-section h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
-		color: white;
+		color: #E8A87C;
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	}
 

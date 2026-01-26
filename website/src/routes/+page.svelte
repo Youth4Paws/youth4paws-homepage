@@ -26,10 +26,57 @@
     Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
-    <Button href={volunteerFormUrl} variant="primary">Mitmachen</Button>
-    <Button variant="secondary" onclick={openContactModal}>Unterstützung anfragen</Button>
+    <a href={volunteerFormUrl} class="custom-btn secondary">Mitmachen</a>
+    <button class="custom-btn secondary" onclick={openContactModal} type="button">
+      Unterstützung anfragen
+    </button>
   {/snippet}
 </Splash>
+
+<style>
+  .custom-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+    font-family: inherit;
+    background: none;
+  }
+  
+  .custom-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .custom-btn.primary {
+    background: linear-gradient(135deg, #5F8F8C 0%, #4A7A77 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(95, 143, 140, 0.3);
+  }
+  
+  .custom-btn.primary:hover {
+    background: linear-gradient(135deg, #6FA09D 0%, #5F8F8C 100%);
+    box-shadow: 0 8px 25px rgba(95, 143, 140, 0.4);
+  }
+  
+  .custom-btn.secondary {
+    background: white;
+    color: #5F8F8C;
+    border: 2px solid #5F8F8C;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-btn.secondary:hover {
+    background: #5F8F8C;
+    color: white;
+  }
+</style>
 
 <ContactModal bind:isOpen={showContactModal} />
 

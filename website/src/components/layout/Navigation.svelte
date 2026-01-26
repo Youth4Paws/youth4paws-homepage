@@ -15,7 +15,7 @@
       <span>Youth4Paws</span>
     </a>
     
-    <button class="mobile-toggle" on:click={toggleMenu} aria-label="Menu">
+    <button class="mobile-toggle" onclick={toggleMenu} aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -135,22 +135,6 @@
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   }
   
-  .cta-button {
-    background: linear-gradient(135deg, #E8A87C 0%, #D9936A 100%);
-    color: #1F4E5F !important;
-    font-weight: 600;
-    padding: 0.65rem 1.5rem !important;
-    border-radius: 25px;
-    box-shadow: 0 3px 12px rgba(232, 168, 124, 0.3);
-    transition: all 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px rgba(232, 168, 124, 0.4);
-    background: linear-gradient(135deg, #F0B58A 0%, #E8A87C 100%);
-  }
-  
   .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -198,12 +182,6 @@
       padding: 1rem 2rem;
       border-radius: 0;
       text-align: left;
-    }
-    
-    .cta-button {
-      margin: 1rem 2rem;
-      text-align: center;
-      width: calc(100% - 4rem);
     }
   }
 </style>

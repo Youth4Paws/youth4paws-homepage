@@ -2,9 +2,9 @@
   let { href = null, children, variant = "primary", onclick } = $props();
   
   function handleClick(e) {
+    console.log("Button clicked!", onclick);
     if (onclick) {
-      e.preventDefault();
-      onclick();
+      onclick(e);
     }
   }
 </script>
@@ -13,7 +13,7 @@
   <a 
     {href} 
     class="button {variant}"
-    on:click={handleClick}
+    onclick={handleClick}
   >
     {@render children()}
     <span class="button-shine"></span>
@@ -21,7 +21,8 @@
 {:else}
   <button 
     class="button {variant}"
-    on:click={handleClick}
+    onclick={handleClick}
+    type="button"
   >
     {@render children()}
     <span class="button-shine"></span>
