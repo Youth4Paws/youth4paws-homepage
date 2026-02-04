@@ -31,12 +31,10 @@
 <style>
   .navbar {
     background: #364850;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+
   
   .nav-container {
     max-width: 1400px;
@@ -52,6 +50,14 @@
       padding: 1rem 2rem;
     }
   }
+
+  @media (max-width: 768px) {
+  .nav-links {
+    background: #364850;
+    box-shadow: none;
+    }
+  }
+
   
   .logo {
     display: flex;
