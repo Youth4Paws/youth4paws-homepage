@@ -1,29 +1,21 @@
 <script>
+  import Paragraph from "../../components/layout/Paragraph.svelte";
   import Section from "../../components/layout/Section.svelte";
-  import Bold from "../../components/text/Bold.svelte";
 </script>
 
 <Section title="Impressum" tag="impressum">
-  <div class="impressum">
-    <p>
-      Kenan Hacisalihoglu<br />
-      Mitterweg, 19<br />
-      85748 Garching bei München
-    </p>
+  <Paragraph subtitle="Anschrift">
+    Kenan Hacisalihoglu
+    Mitterweg, 19
+    85748 Garching bei München
+  </Paragraph>
 
-    <h2>Kontakt</h2>
-    <p>Telefon: +4917646294142</p>
-    <p>E-Mail: kenan.hacisalihoglu.stud@gmail.com</p>
+  <Paragraph subtitle="Kontakt">
+    Telefon: +4917646294142
+    E-Mail: kenan.hacisalihoglu.stud@gmail.com
+  </Paragraph>
 
-    <h2>Redaktionell verantwortlich</h2>
-    <p>Hacisalihoglu Kenan</p>
-  </div>
+  <Paragraph subtitle="Redaktionell verantwortlich">
+    Hacisalihoglu Kenan
+  </Paragraph>
 </Section>
-
-<style>
-  .impressum {
-    max-width: 720px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-</style>

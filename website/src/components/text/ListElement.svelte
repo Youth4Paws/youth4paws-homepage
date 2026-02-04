@@ -15,6 +15,7 @@
   span.bullet {
     position: absolute;
     left: -.7em;
+    top: -.1em;
     transform: translateX(-50%);
     text-align: center;
     display: flex;

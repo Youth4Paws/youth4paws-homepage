@@ -1,3 +1,5 @@
+<!-- TODO: rewrite -->
+
 <script>
   import { page } from '$app/stores';
   

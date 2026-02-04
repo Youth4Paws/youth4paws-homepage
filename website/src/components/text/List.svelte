@@ -19,11 +19,7 @@
     width: 100%;
     max-width: 50em;
 
-    /* vorher margin:0; -> das ist zu eng */
-    margin: 1rem 0;
-
-    /* wichtig: Platz für die absolut positionierten Paw-Icons */
-    padding-left: 1.75rem;
+    padding-left: 2rem;
 
     font-weight: dimensions.$fontWeight;
     font-size: dimensions.$fontSize;

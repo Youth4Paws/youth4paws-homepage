@@ -16,8 +16,8 @@ up:
 	docker compose up -d
 
 prod:
-	git stash -u || true
+	git stash -u
 	git pull
-	git stash pop || true
+	git stash apply
 	$(MAKE) build
 	$(MAKE) up

@@ -1,3 +1,5 @@
+<!-- TODO: rewrite -->
+
 <script>
   let { href = null, children, variant = "primary", onclick } = $props();
   
