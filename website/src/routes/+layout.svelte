@@ -79,7 +79,6 @@
 
 	main {
 		width: 100%;
-		min-height: calc(100vh - 200px);
 		background: transparent;
 		display: block;
 		margin: 0;
@@ -194,6 +193,21 @@
 
 	main {
 	background: #ffffff !important;
+	}
+	main {
+	width: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	}
+	:global(body) {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	}
+
+	main {
+	flex: 1;
 	}
 
 

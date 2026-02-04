@@ -21,10 +21,25 @@
       <span></span>
     </button>
     
-    <div class="nav-links" class:open={mobileMenuOpen}>
-      <a href="/" class:active={$page.url.pathname === '/'}>Home</a>
-      <a href="/impressum" class:active={$page.url.pathname === '/impressum'}>Impressum</a>
-    </div>
+  <div class="nav-links" class:open={mobileMenuOpen}>
+    <a
+      href="/"
+      class:active={$page.url.pathname === '/'}
+      onclick={() => (mobileMenuOpen = false)}
+    >
+      Home
+    </a>
+
+    <a
+      href="/impressum"
+      class:active={$page.url.pathname === '/impressum'}
+      onclick={() => (mobileMenuOpen = false)}
+    >
+      Impressum
+    </a>
+  </div>
+
+
   </div>
 </nav>
 
@@ -47,6 +62,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: none !important;
+    border: none !important;
   }
   
   @media (min-width: 769px) {
@@ -161,7 +178,7 @@
     
     .nav-links {
       position: absolute;
-      top: 100%;
+      top: calc(100% - 1px);
       left: 0;
       right: 0;
 
@@ -175,7 +192,7 @@
       transition: max-height 0.3s ease;
 
       box-shadow: none; /* <- verhindert zweite "Kante" */
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: none;
     }
     
     .nav-links.open {
@@ -189,4 +206,71 @@
       text-align: left;
     }
   }
+
+  /* iOS/mobile: remove any blur/gradient edge under sticky header */
+  @media (max-width: 768px) {
+    .navbar {
+      background: #364850 !important;
+      box-shadow: none !important;
+      border-bottom: none !important;
+
+      /* iOS blur causes “gradient strip” */
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+
+      /* prevent hairline gaps */
+      transform: translateZ(0);
+    }
+
+    /* kill any pseudo-element line/overlay */
+    .navbar::before,
+    .navbar::after {
+      content: none !important;
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-container,
+    .nav-wrapper,
+    header {
+      box-shadow: none !important;
+      border: none !important;
+      background: transparent !important;
+    }
+
+    .nav-container::before,
+    .nav-container::after,
+    header::before,
+    header::after {
+      content: none !important;
+      display: none !important;
+    }
+  }
+
+  /* prevent layout shift between normal and active links */
+  .nav-links a {
+    text-decoration: underline;
+    text-decoration-color: transparent; /* invisible for inactive */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+
+  /* active: just change underline color (no size change) */
+  .nav-links a.active,
+  .nav-links a[aria-current="page"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+
+    text-decoration-color: currentColor;
+  }
+
+  /* kill any extra pseudo underline */
+  .nav-links a::before,
+  .nav-links a::after {
+    content: none !important;
+  }
+
+
 </style>
