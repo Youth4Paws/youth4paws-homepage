@@ -13,12 +13,10 @@
 
     <h2>Kontakt</h2>
     <p>Telefon: +4917646294142</p>
-    <p>Telefax: +4917646294142</p>
     <p>E-Mail: kenan.hacisalihoglu.stud@gmail.com</p>
 
     <h2>Redaktionell verantwortlich</h2>
     <p>Hacisalihoglu Kenan</p>
-    <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
   </div>
 </Section>
 

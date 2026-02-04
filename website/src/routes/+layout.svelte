@@ -41,7 +41,7 @@
 		</div>
 		<div class="footer-section">
 			<h4>Kontakt</h4>
-			<p>Email: kenan.hacisalihoglu.stud@gmail.com</p>
+			<p>Email: team.youth4paws@gmail.com</p>
 			<p>Tel: +49 176 46294142</p>
 		</div>
 	</div>

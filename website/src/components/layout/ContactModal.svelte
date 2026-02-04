@@ -1,7 +1,7 @@
 <script>
   let { isOpen = $bindable(false) } = $props();
   
-  const email = "kenan.hacisalihoglu.stud@gmail.com";
+  const email = "team.youth4paws@gmail.com";
   const phone = "+49 176 46294142";
   const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfkZnRMkfYqmAogcmZO-QIvRO4pYBJaL3cyih6Q_iDFknKy0g/viewform?usp=dialog";
   
