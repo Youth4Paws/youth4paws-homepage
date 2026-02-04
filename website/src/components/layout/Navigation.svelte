@@ -31,8 +31,12 @@
 <style>
   .navbar {
     background: #364850;
-    box-shadow: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none; /* <- verhindert "Doppellinie" auf iOS */
+    border-bottom: none;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: none;
   }
 
   
@@ -50,14 +54,6 @@
       padding: 1rem 2rem;
     }
   }
-
-  @media (max-width: 768px) {
-  .nav-links {
-    background: #364850;
-    box-shadow: none;
-    }
-  }
-
   
   .logo {
     display: flex;
@@ -168,14 +164,18 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: #5F8F8C;
+
+      background: #364850; /* <- gleiche Farbe wie Navbar */
       flex-direction: column;
       gap: 0;
-      padding: 1rem 0;
+      padding: 0.75rem 0;
+
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+      box-shadow: none; /* <- verhindert zweite "Kante" */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     
     .nav-links.open {

@@ -23,15 +23,30 @@
   @use "../../styles/mixins/layout.scss";
   
   section {
-    display: flex;  
-    flex-direction: column;
-    gap: dimensions.$gapSmall;
-    padding: 4rem 2rem;
     margin: 0;
     background: #FFFFFF;
-    
+
+    /* background full-width */
     @include layout.section-dimensioning;
   }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: dimensions.$gapSmall;
+
+    /* content spacing */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 4rem 2rem;
+    }
+  }
+
 
   // Explizite Farben für spezifische Sections
   section.primary {
@@ -58,8 +73,8 @@
   }
 
   @media (max-width: 768px) {
-    section {
-      padding: 3rem 1.5rem;
+    .container {
+      padding: 3rem 1.25rem;
     }
   }
 </style>
@@ -71,9 +86,8 @@
   class:inherit={color === "inherit"} 
   id={tag}
 >
-  <Title>
-    {title}
-  </Title>
-
-  {@render children()}
+  <div class="container">
+    <Title>{title}</Title>
+    {@render children()}
+  </div>
 </section>

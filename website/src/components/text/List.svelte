@@ -18,10 +18,15 @@
   ol, ul {
     width: 100%;
     max-width: 50em;
-    margin: 0;
+
+    /* vorher margin:0; -> das ist zu eng */
+    margin: 1rem 0;
+
+    /* wichtig: Platz für die absolut positionierten Paw-Icons */
+    padding-left: 1.75rem;
 
     font-weight: dimensions.$fontWeight;
-		font-size: dimensions.$fontSize;
+    font-size: dimensions.$fontSize;
 
     text-align: start;
   }

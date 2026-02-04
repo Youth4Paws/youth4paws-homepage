@@ -83,8 +83,18 @@
 		background: transparent;
 		display: block;
 		margin: 0;
-		padding: 0;
+
+		/* nur vertikal, kein links/rechts -> sonst gibt’s "Ränder" */
+		padding: 1.25rem 0;
+		padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
 	}
+
+	@media (min-width: 768px) {
+		main {
+			padding: 2rem 0;
+			}
+	}
+
 
 	footer {
 		background: #364850;
@@ -150,4 +160,41 @@
 			padding: 2rem 1.5rem 1.5rem;
 		}
 	}
+	:global(p) {
+	margin: 0 0 1rem 0;
+	}
+
+	:global(h1),
+	:global(h2),
+	:global(h3) {
+		margin: 1.5rem 0 0.75rem;
+	}
+
+	:global(ul),
+	:global(ol) {
+		margin: 1rem 0;
+		padding-left: 1.25rem;
+	}
+
+	:global(.container) {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 1.25rem;
+	}
+
+	@media (min-width: 768px) {
+		:global(.container) {
+			padding: 0 2.5rem;
+		}
+	}
+	:global(html),
+	:global(body) {
+	background: #ffffff !important;
+	}
+
+	main {
+	background: #ffffff !important;
+	}
+
+
 </style>
