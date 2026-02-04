@@ -23,7 +23,6 @@
     
     <div class="nav-links" class:open={mobileMenuOpen}>
       <a href="/" class:active={$page.url.pathname === '/'}>Home</a>
-      <a href="/aboutUs" class:active={$page.url.pathname === '/aboutUs'}>Über uns</a>
       <a href="/impressum" class:active={$page.url.pathname === '/impressum'}>Impressum</a>
     </div>
   </div>
@@ -31,7 +30,7 @@
 
 <style>
   .navbar {
-    background: #5F8F8C;
+    background: #364850;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;

@@ -9,7 +9,7 @@
     children: Snippet;
   }
 
-	let {
+  let {
     title,
     tag,
     color = "primary",
@@ -18,49 +18,50 @@
 </script>
 
 <style lang="scss">
-  @use "sass:map";
-
-  @use "../../styles/constants/colors.scss";
   @use "../../styles/constants/dimensions.scss";
   @use "../../styles/constants/media.scss";
-
   @use "../../styles/mixins/layout.scss";
   
   section {
     display: flex;  
     flex-direction: column;
     gap: dimensions.$gapSmall;
-
+    padding: 4rem 2rem;
+    margin: 0;
+    background: #FFFFFF;
+    
     @include layout.section-dimensioning;
   }
-  //@include media.phone {
-    section:nth-child(4n) {
-      background-color: map.get(colors.$mainColors, "tertiary", "background");
-      color: map.get(colors.$mainColors, "tertiary", "foreground");
-    }
-    section:nth-child(4n+2) {
-      background-color: map.get(colors.$mainColors, "secondary", "background");
-      color: map.get(colors.$mainColors, "secondary", "foreground");
-    }
-  //}
-  //@include media.desktop-and-large {
-  //  section:nth-child(4n+2) {
-  //    background-color: map.get(colors.$mainColors, "secondary", "background");
-  //    color: map.get(colors.$mainColors, "secondary", "foreground");
-  //  }
-  //  section:nth-child(4n+3) {
-  //    background-color: map.get(colors.$mainColors, "tertiary", "background");
-  //    color: map.get(colors.$mainColors, "tertiary", "foreground");
-  //  }
-  //}
 
-  //@each $key, $val in colors.$mainColors {
-  //  section.#{$key} {
-  //    background-color: map.get($val, "background");
-  //    color: map.get($val, "foreground");
-  //  }
-  //}
+  // Explizite Farben für spezifische Sections
+  section.primary {
+    background: #FFFFFF;
+  }
+  
+  section.secondary {
+    background: linear-gradient(135deg, #759889 0%, #9AB8A9 100%);
+    color: white;
+  }
 
+
+  
+  section.secondary :global(p),
+  section.secondary :global(h1),
+  section.secondary :global(h2),
+  section.secondary :global(h3),
+  section.secondary :global(li) {
+    color: white !important;
+  }
+  
+  section.tertiary {
+    background: linear-gradient(to bottom, #F8F9FA 0%, #F0F2F4 100%);
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 3rem 1.5rem;
+    }
+  }
 </style>
 
 <section

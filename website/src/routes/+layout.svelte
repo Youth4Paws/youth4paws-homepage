@@ -33,17 +33,16 @@
 	<div class="footer-content">
 		<div class="footer-section">
 			<h3>Youth4Paws</h3>
-			<p>Studentische Initiative für Tierschutz in München</p>
 		</div>
 		<div class="footer-section">
 			<h4>Quick Links</h4>
 			<a href="/">Home</a>
-			<a href="/aboutUs">Über uns</a>
 			<a href="/impressum">Impressum</a>
 		</div>
 		<div class="footer-section">
 			<h4>Kontakt</h4>
-			<p>Email: info@youth4paws.de</p>
+			<p>Email: kenan.hacisalihoglu.stud@gmail.com</p>
+			<p>Tel: +49 176 46294142</p>
 		</div>
 	</div>
 	<div class="footer-bottom">
@@ -82,10 +81,13 @@
 		width: 100%;
 		min-height: calc(100vh - 200px);
 		background: transparent;
+		display: block;
+		margin: 0;
+		padding: 0;
 	}
 
 	footer {
-		background: #5F8F8C;
+		background: #364850;
 		color: white;
 		margin-top: 4rem;
 	}
@@ -102,7 +104,7 @@
 	.footer-section h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
-		color: #E8A87C;
+		color: white;
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	}
 
@@ -127,7 +129,7 @@
 	}
 
 	.footer-section a:hover {
-		color: #E8A87C;
+		color: white;
 		padding-left: 0.5rem;
 	}
 

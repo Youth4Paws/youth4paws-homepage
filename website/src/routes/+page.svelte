@@ -13,7 +13,7 @@
   
   let showContactModal = $state(false);
   
-  const volunteerFormUrl = "https://forms.google.com/YOUR_VOLUNTEER_FORM_ID";
+  const volunteerFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSftSlOB8J_m34I5zA2lBahgkaYx9aPNAubKjSSk50eJXEvStg/viewform?usp=preview";
   
   function openContactModal() {
     console.log("Opening modal...");
@@ -80,7 +80,7 @@
 
 <ContactModal bind:isOpen={showContactModal} />
 
-<Section title="Wer sind wir?" tag="introduction">
+<Section title="Wer sind wir?" tag="introduction" color="secondary">
   <Paragraph>
     <Bold>Youth4Paws</Bold> ist eine in München beheimatete, überwiegend studentisch geführte Initiative, die sich mit Leidenschaft und Tatkraft dem lokalen Tierschutz verschrieben hat. Unser Leitsatz lautet: <Bold>Weniger reden — mehr handeln</Bold>.
   </Paragraph>
@@ -95,7 +95,7 @@
   </Paragraph>
 </Section>
 
-<Section title="Was bieten wir genau an?" tag="offer" color="secondary">
+<Section title="Was bieten wir genau an?" tag="offer">
   <Paragraph>
     Dank der <Bold>Vielfalt</Bold> und <Bold>unterschiedlichen Fachrichtungen</Bold> unserer Mitglieder können wir Tierschutzorganisationen in zahlreichen Bereichen unterstützen.
   </Paragraph>
@@ -131,7 +131,7 @@
   </List>
 </Section>
 
-<Section title="Wie sieht eine Kooperation mit uns aus?" tag="cooperation">
+<Section title="Wie sieht eine Kooperation mit uns aus?" tag="cooperation" color="secondary">
   <Paragraph>
     Wir bieten Tierschutzorganisationen verschiedene Formen der Zusammenarbeit an, je nach Bedarf und verfügbaren Kapazitäten.
   </Paragraph>
@@ -185,7 +185,7 @@
   </CardContainer>
 </Section>
 
-<Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer" color="secondary">
+<Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer">
   <Paragraph>
     Die Mitgliedschaft bei <Bold>Youth4Paws</Bold> ist vollständig <Bold>ehrenamtlich und unentgeltlich</Bold>.
   </Paragraph>

@@ -19,7 +19,7 @@
         <div class="image-wrapper">
           <img src={imgSrc} alt={imgAlt} />
           <div class="image-overlay">
-            <p>Unser Team bei der Arbeit</p>
+            <p></p>
           </div>
         </div>
       {:else}
@@ -40,7 +40,7 @@
 
 <style>
   .splash {
-    background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
+    background: #FFFFFF;
     padding: 4rem 2rem;
     min-height: 600px;
     display: flex;
