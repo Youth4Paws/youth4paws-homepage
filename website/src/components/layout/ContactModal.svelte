@@ -197,6 +197,10 @@
     text-align: center;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+
+    display: flex;              /* ✅ */
+    flex-direction: column;     /* ✅ */
+    height: 100%;               /* ✅ */
   }
   
   .contact-card:hover {
@@ -227,9 +231,15 @@
     font-size: 1rem;
     color: #666;
     margin: 0 0 1.5rem 0;
-    word-break: break-all;
+    overflow-wrap: anywhere;    
+    word-break: normal;         
   }
-  
+
+  .copy-button,
+  .form-button {
+    margin-top: auto;           
+  }
+
   .copy-button,
   .form-button {
     width: 100%;
