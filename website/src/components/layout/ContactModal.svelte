@@ -3,7 +3,7 @@
   
   const email = "kenan.hacisalihoglu.stud@gmail.com";
   const phone = "+49 176 46294142";
-  const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSftSlOB8J_m34I5zA2lBahgkaYx9aPNAubKjSSk50eJXEvStg/viewform?usp=dialog";
+  const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfkZnRMkfYqmAogcmZO-QIvRO4pYBJaL3cyih6Q_iDFknKy0g/viewform?usp=dialog";
   
   let copiedEmail = $state(false);
   let copiedPhone = $state(false);
