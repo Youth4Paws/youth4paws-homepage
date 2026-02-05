@@ -8,10 +8,10 @@ $breakpoints: (
   @media screen and (max-width: 800px) { @content; }
 }
 @mixin desktop {
-  @media screen and (min-width: 801px) and (max-width: 1999px) { @content; }
+  @media screen and (min-width: 801px) and (max-width: 1499px) { @content; }
 }
 @mixin large {
-  @media screen and (min-width: 2000px) { @content; }
+  @media screen and (min-width: 1500px) { @content; }
 }
 @mixin desktop-and-large {
   @media screen and (min-width: 801px) { @content; }

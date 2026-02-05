@@ -38,6 +38,11 @@
 
 	:global(body) {
 		margin: 0;
+		background-color: map.get(colors.$mainColors, "tertiary", "background");
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 	}
 
 	:global(html) {
@@ -56,6 +61,8 @@
 		gap: 0;
 
 		background-color: map.get(colors.$mainColors, "primary", "background");
+
+    flex-grow: 1;
   }
 </style>
 

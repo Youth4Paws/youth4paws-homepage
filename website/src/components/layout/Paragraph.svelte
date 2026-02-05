@@ -1,14 +1,16 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-    import Subtitle from "../text/Subtitle.svelte";
+  import Subtitle from "../text/Subtitle.svelte";
 
   interface Props {
     subtitle?: string;
+    small?: boolean;
     children: Snippet;
   }
 
   let {
     subtitle = "",
+    small = false,
     children
   }: Props = $props();
 </script>
@@ -31,6 +33,10 @@
     white-space: pre-line;
   }
 
+  p.small {
+		font-size: dimensions.$fontSizeSmall;
+  }
+
   div {
     width: 100%;
     margin: 0;
@@ -45,6 +51,6 @@
     </Subtitle>
   </div>
 {/if}
-<p lang="de">
+<p lang="de" class:small>
   {@render children()}
 </p>
