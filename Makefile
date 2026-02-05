@@ -18,6 +18,6 @@ up:
 prod:
 	git stash -u
 	git pull
-	git stash apply
+	git stash apply || true
 	$(MAKE) build
 	$(MAKE) up
