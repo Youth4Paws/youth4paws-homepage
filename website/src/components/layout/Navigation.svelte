@@ -140,27 +140,24 @@
 
   .logo {
     all: unset;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: all 0.3s ease;
+    gap: dimensions.$gapSmaller;
+    font-size: dimensions.$fontSizeLarge;
+    font-weight: dimensions.$fontWeightBold;
+    transition: transform animations.$animationSpeed ease-out;
     grid-area: logo;
+    cursor: pointer;
   }
   
   .logo:hover {
-    transform: translateY(-2px);
-    color: #FFFFFF;
+    transform: translateY(-.1em);
   }
   
   .logo img {
-    width: 45px;
-    height: 45px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    height: 1.5em;
+    border-radius: dimensions.$borderRadiusTiny;
+    transition: transform animations.$animationSpeed ease-out;
   }
   
   .logo:hover img {
