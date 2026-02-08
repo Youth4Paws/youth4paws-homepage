@@ -41,6 +41,8 @@
 		padding-top: dimensions.$gap;
 		padding-bottom: dimensions.$gap;
 		text-align: left;
+
+    box-shadow: 0 50vh 0 50vh map.get(colors.$mainColors, "tertiary", "background");
   }
 
   div {
