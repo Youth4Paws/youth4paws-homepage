@@ -5,8 +5,8 @@
 	import { beforeNavigate, afterNavigate } from "$app/navigation";
 	import { tick } from "svelte";
   import { browser } from "$app/environment";
-    import Navigation from '../components/layout/Navigation.svelte';
-    import Footer from '../components/layout/Footer.svelte';
+  import Navigation from '../components/layout/Navigation.svelte';
+  import Footer from '../components/layout/Footer.svelte';
 
 	let { children } = $props();
 
