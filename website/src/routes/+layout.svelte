@@ -20,6 +20,13 @@
     await tick();
     document.getElementsByTagName("html")[0].classList.remove("pageSwitch");
   });
+
+  // Hack to get the color right "below" the footer when scrolling on touchscreen devices
+  let scrollY = $state(0);
+  $effect(() => {
+    if (scrollY > 100) document.body.classList.add("scroll");
+    else document.body.classList.remove("scroll");
+  });
 </script>
 
 <style lang="scss">
@@ -38,7 +45,7 @@
 
 	:global(body) {
 		margin: 0;
-		background-color: map.get(colors.$mainColors, "tertiary", "background");
+    background: map.get(colors.$mainColors, "primary", "background");
 
     display: flex;
     flex-direction: column;
@@ -47,6 +54,10 @@
     width: 100vw;
     overflow-x: hidden;
 	}
+
+	:global(body.scroll) {
+    background: map.get(colors.$mainColors, "tertiary", "background");
+  }
 
 	:global(html) {
     height: 100%;
@@ -61,10 +72,6 @@
 
   main {
     width: 100%;
-		gap: 0;
-
-		background-color: map.get(colors.$mainColors, "primary", "background");
-
     flex-grow: 1;
   }
 </style>
@@ -74,6 +81,8 @@
 	<link rel="icon" href={favicon} />
 	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
+
+<svelte:window bind:scrollY/>
 
 <Navigation/>
 
