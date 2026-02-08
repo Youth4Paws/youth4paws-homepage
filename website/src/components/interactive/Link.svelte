@@ -22,6 +22,7 @@
     color: currentColor;
     text-decoration: inherit;
     cursor: pointer;
+    width: max-content;
   }
 
   span {
