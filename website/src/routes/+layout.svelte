@@ -38,7 +38,7 @@
 
 	:global(body) {
 		margin: 0;
-    background: map.get(colors.$mainColors, "primary", "background");
+    background: map.get(colors.$mainColors, "tertiary", "background");
 
     display: flex;
     flex-direction: column;
@@ -47,10 +47,6 @@
     width: 100vw;
     overflow-x: hidden;
 	}
-
-	:global(body.scroll) {
-    background: map.get(colors.$mainColors, "tertiary", "background");
-  }
 
 	:global(html) {
     height: 100%;
@@ -64,8 +60,11 @@
   }
 
   main {
+    background: map.get(colors.$mainColors, "primary", "background");
     width: 100%;
     flex-grow: 1;
+    padding-top: 80em;
+    margin-top: -80em;
   }
 </style>
 

@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { Menu } from "lucide-svelte";
   import Link from "../interactive/Link.svelte";
 
   let scrollY = $state(0);
+  let clientHeight = $state(0);
 </script>
 
 <style lang="scss">
@@ -14,16 +16,20 @@
   @use "../../styles/mixins/layout.scss";
 
   .navbar {
+    $bleedLength: 0em;
+
     all: unset;
     color: map.get(colors.$mainColors, "tertiary", "foreground");
-    background: linear-gradient(180deg, map.get(colors.$mainColors, "tertiary", "background") 0%, color-mix(in srgb, map.get(colors.$mainColors, "tertiary", "background") 80%, transparent) 100%);
+    background: linear-gradient(
+      180deg,
+      map.get(colors.$mainColors, "tertiary", "background") 0,
+      color-mix(in srgb, map.get(colors.$mainColors, "tertiary", "background") var(--gradientPercentage), transparent) 100%
+    );
     backdrop-filter: blur(1em);
 
     position: sticky;
     top: 0;
     z-index: 100;
-
-    $bleedLength: 20em;
 
     @include layout.section-dimensioning-larger;
     padding-bottom: dimensions.$gapSmall;
@@ -37,28 +43,15 @@
     transform: translateY(-$bleedLength);
   }
 
-  .navbar::before {
-    background-color: map.get(colors.$mainColors, "tertiary", "background");
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    content: "";
-
-    transition: opacity animations.$animationSpeed linear;
-  }
-
-  .navbar.translucent::before {
-    opacity: 0;
-  }
-
   .links {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: dimensions.$gap;
+
+    @include media.phone {
+      display: none;
+    }
   }
   
   .logo {
@@ -90,12 +83,12 @@
   }
 </style>
 
-<nav class="navbar" class:translucent={scrollY !== 0}>
+<nav class="navbar" style="--gradientPercentage: {100 - 20 * Math.min(Math.max(scrollY, 0) / (clientHeight * 2), 1)}%;" bind:clientHeight>
   <a href="/" class="logo">
     <img src="/img/logo.svg" alt="Youth4Paws Logo" />
     <span>Youth4Paws</span>
   </a>
-    
+
   <div class="links">
     <Link href="/">
       Home
