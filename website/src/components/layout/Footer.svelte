@@ -84,7 +84,7 @@
     <Paragraph small={true}>
 			<Bold>Kontakt</Bold><br/>
       Telefon: +49 176 46294142
-      Email: team.youth4paws@gmail.com
+      E-Mail: team.youth4paws@gmail.com
     </Paragraph>
   </div>
 	<div class="copyright">
