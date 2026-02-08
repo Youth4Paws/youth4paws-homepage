@@ -28,6 +28,7 @@
   }
 
   function onClick(event: MouseEvent) {
+    if (!burgerOpen) return;
     //@ts-ignore
     let e: (HTMLElement | null) = event.target;
     while (e != null && e != document.body) {
