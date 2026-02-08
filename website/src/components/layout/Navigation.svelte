@@ -11,6 +11,7 @@
   let transition = $state(false);
 
   function burgerClick() {
+    transition = true;
     if (burgerOpen) closeNav();
     else openNav();
   }
@@ -21,6 +22,7 @@
 
   function onScroll() {
     closeNav();
+    transition = true;
   }
   function onResize() {
     closeNav();
@@ -36,15 +38,14 @@
       e = e.parentElement;
     }
     closeNav();
+    transition = true;
   }
 
   function closeNav() {
     burgerOpen = false;
-    transition = true;
   }
   function openNav() {
     burgerOpen = true;
-    transition = true;
   }
 
   function transitionEnd() {
