@@ -4,7 +4,7 @@
 	import { afterNavigate } from "$app/navigation";
 
   let scrollY = $state(0);
-  let clientHeight = $state(0);
+  let clientHeight = $state(1000);
   let linksHeight = $state(0);
   let burgerOpen = $state(false);
   let navElement = $state<HTMLElement>();
@@ -17,16 +17,18 @@
   }
 
   afterNavigate(() => {
+    transition = false;
     closeNav();
   })
 
-  function onScroll() {
-    closeNav();
+  function onScroll(event:Event) {
+    if (transition) return;
     transition = true;
+    closeNav();
   }
   function onResize() {
-    closeNav();
     transition = false;
+    closeNav();
   }
 
   function onClick(event: MouseEvent) {
@@ -34,6 +36,7 @@
     //@ts-ignore
     let e: (HTMLElement | null) = event.target;
     while (e != null && e != document.body) {
+      console.log(e, navElement, e == navElement);
       if (e == navElement) return;
       e = e.parentElement;
     }
@@ -85,11 +88,25 @@
     justify-content: space-between;
     align-items: center;
 
+    overflow: hidden;
+
     @include media.phone {
+      $height: calc(1.5em + 2 * dimensions.$gapSmall);
+
+      max-height: $height;
+
       display: grid;
       grid-template-columns: auto auto;
-      grid-template-rows: 1fr;
+      grid-template-rows: $height auto;
       grid-template-areas: "logo burger" "links links";
+
+      &.open {
+        max-height: calc($height + var(--linksHeight));
+      }
+
+      &.transition {
+        transition: max-height ease-out animations.$animationSpeed;
+      }
     }
   }
 
@@ -106,23 +123,9 @@
       padding-bottom: dimensions.$gapSmaller;
       flex-direction: column;
       gap: dimensions.$gapSmall;
-
-      margin-top: calc(-1 * var(--linksHeight));
-      transform: translateY(var(--linksHeight));
-      -webkit-backface-visibility: hidden;
     }
   }
-  .links.transition {
-    @include media.phone {
-      transition: margin-top animations.$animationSpeed ease-out, transform animations.$animationSpeed ease-out;
-    }
-  }
-  .open {
-    margin-top: 0;
-    transform: translateY(0px);
-  }
 
-  // todo: why does translateY in .links cause .burger to shift???
   .burger {
     all: unset;
     cursor: pointer;
@@ -156,6 +159,7 @@
   
   .logo img {
     height: 1.5em;
+    width: 1.5em;
     border-radius: dimensions.$borderRadiusTiny;
     transition: transform animations.$animationSpeed ease-out;
   }
@@ -165,19 +169,21 @@
   }
 </style>
 
-<nav class="navbar" style="--gradientPercentage: {100 - 20 * Math.min(Math.max(scrollY, 0) / (clientHeight * 2), 1)}%;" bind:clientHeight bind:this={navElement}>
+<nav
+  class="navbar"
+  class:open={burgerOpen}
+  class:transition
+  style="--gradientPercentage: {100 - 20 * Math.min(Math.max(scrollY, 0) / (clientHeight * 2), 1)}%; --linksHeight: {linksHeight}px"
+  bind:clientHeight
+  bind:this={navElement}
+  ontransitionend={transitionEnd}
+>
   <a href="/" class="logo">
     <img src="/img/logo.svg" alt="Youth4Paws Logo" />
     <span>Youth4Paws</span>
   </a>
 
-  <div class="links"
-    class:open={burgerOpen}
-    class:transition
-    style="--linksHeight: {linksHeight}px"
-    ontransitionend={transitionEnd}
-    bind:clientHeight={linksHeight}
-  >
+  <div class="links" bind:clientHeight={linksHeight}>
     <Link href="/">
       Home
     </Link>
