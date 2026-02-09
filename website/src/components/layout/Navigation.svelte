@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Menu } from "lucide-svelte";
   import Link from "../interactive/Link.svelte";
-	import { afterNavigate } from "$app/navigation";
+	import { afterNavigate, beforeNavigate } from "$app/navigation";
 
   let scrollY = $state(0);
   let clientHeight = $state(1000);
@@ -16,13 +16,13 @@
     else openNav();
   }
 
-  afterNavigate(() => {
+  beforeNavigate(() => {
     transition = false;
     closeNav();
   })
 
   function onScroll(event:Event) {
-    if (transition) return;
+    if (!burgerOpen || transition) return;
     transition = true;
     closeNav();
   }
