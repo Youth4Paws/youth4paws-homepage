@@ -64,6 +64,12 @@
     gap: dimensions.$gapSmall;
     justify-content: start;
     align-items: center;
+
+    @include media.phone {
+      flex-direction: column;
+      gap: dimensions.$gapSmaller;
+      align-items: end;
+    }
   }
 
   img {
