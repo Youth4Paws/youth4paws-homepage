@@ -153,7 +153,7 @@
     Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die DSGVO verstößt.
   </Paragraph>
 
-  <Paragraph subtitle="12. SSL- bzw. TLS-Verschlüsselung">
+  <Paragraph subtitle="11. SSL- bzw. TLS-Verschlüsselung">
     Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung.
   </Paragraph>
 </Section>
