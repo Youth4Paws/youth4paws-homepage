@@ -79,7 +79,8 @@
     <Paragraph small={true}>
 			<Bold>Quick Links</Bold><br/>
 			<Link href="/">Home</Link><br/>
-			<Link href="/impressum">Impressum</Link>
+			<Link href="/impressum">Impressum</Link><br/>
+			<Link href="/privacy">Datenschutz</Link>
     </Paragraph>
   </div>
   <div class="contact">

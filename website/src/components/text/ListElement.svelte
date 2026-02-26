@@ -10,6 +10,10 @@
   li {
     hyphens: auto;
     position: relative;
+
+    &:not(:first-child) {
+      margin-top: dimensions.$gapSmaller;
+    }
   }
 
   span.bullet {

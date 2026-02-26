@@ -190,6 +190,9 @@
     <Link href="/impressum">
       Impressum
     </Link>
+    <Link href="/privacy">
+      Datenschutz
+    </Link>
   </div>
 
   <button class="burger" onclick={burgerClick}>

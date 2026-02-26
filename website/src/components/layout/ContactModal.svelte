@@ -5,7 +5,7 @@
   
   const email = "team.youth4paws@gmail.com";
   const phone = "+49 176 46294142";
-  const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfkZnRMkfYqmAogcmZO-QIvRO4pYBJaL3cyih6Q_iDFknKy0g/viewform?usp=dialog";
+  const formUrl = "";
   
   let copiedEmail = $state(false);
   let copiedPhone = $state(false);

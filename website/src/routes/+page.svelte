@@ -13,7 +13,7 @@
   
   let showContactModal = $state(false);
   
-  const volunteerFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSftSlOB8J_m34I5zA2lBahgkaYx9aPNAubKjSSk50eJXEvStg/viewform?usp=preview";
+  const volunteerFormUrl = "";
   
   function openContactModal() {
     console.log("Opening modal...");
@@ -26,10 +26,12 @@
     Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
+    <!--
     <a href={volunteerFormUrl} class="custom-btn secondary">Mitmachen</a>
     <button class="custom-btn secondary" onclick={openContactModal} type="button">
       Unterstützung anfragen
     </button>
+    -->
   {/snippet}
 </Splash>
 
