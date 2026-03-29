@@ -9,8 +9,8 @@
 <Section title="Impressum">
   <Paragraph subtitle="Anschrift">
     Kenan Hacisalihoglu
-    Mitterweg, 19
-    85748 Garching bei München
+    Landsbergerstraße 62
+    82256 Fürstenfeldbruck 
   </Paragraph>
 
   <Paragraph subtitle="Kontakt">
