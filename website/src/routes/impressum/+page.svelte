@@ -8,7 +8,8 @@
 
 <Section title="Impressum">
   <Paragraph subtitle="Anschrift">
-    Kenan Hacisalihoglu
+    Youth4Paws
+    Kenan Hacisalihoglu (Vorstandsvorsitzender)
     Landsbergerstraße 62
     82256 Fürstenfeldbruck 
   </Paragraph>
