@@ -5,6 +5,8 @@
 	import { beforeNavigate, afterNavigate } from "$app/navigation";
 	import { tick } from "svelte";
   import { browser } from "$app/environment";
+  import Navigation from '../components/layout/Navigation.svelte';
+  import Footer from '../components/layout/Footer.svelte';
 
 	let { children } = $props();
 
@@ -31,11 +33,21 @@
 		font-family: "Atkinson Hyperlegible Next", sans-serif;
 		font-optical-sizing: auto;
 		font-style: normal;
-		box-sizing: border-box;
+		box-sizing: border-box !important;
 	}
 
 	:global(body) {
 		margin: 0;
+    background: map.get(colors.$mainColors, "tertiary", "background");
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    width: 100vw;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
 	}
 
 	:global(html) {
@@ -50,33 +62,11 @@
   }
 
   main {
+    background: map.get(colors.$mainColors, "primary", "background");
     width: 100%;
-		gap: 0;
-
-		background-color: map.get(colors.$mainColors, "primary", "background");
-
-		// Approach 1
-		//columns: 2;
-		//@include media.phone {
-		//	columns: 1;
-		//}
-		//@include media.large {
-		//	columns: 3;
-		//}
-
-		// Approach 2
-		//display: grid;
-		//grid-template-rows: auto;
-		//grid-auto-rows: auto;
-		//@include media.phone {
-		//	grid-template-columns: 1fr;
-		//}
-		//@include media.desktop {
-		//	grid-template-columns: 1fr 1fr;
-		//}
-		//@include media.large {
-		//	grid-template-columns: 1fr 1fr 1fr;
-		//}
+    flex-grow: 1;
+    padding-top: 80em;
+    margin-top: -80em;
   }
 </style>
 
@@ -86,9 +76,10 @@
 	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
+<Navigation/>
+
 <main>
 	{@render children?.()}
 </main>
 
-<footer>
-</footer>
+<Footer/>

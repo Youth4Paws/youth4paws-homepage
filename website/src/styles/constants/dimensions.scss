@@ -1,20 +1,29 @@
 $gapTiny: .25em;
 $gapSmaller: .5em;
-$gapSmall: 1em;
+$gapSmall: 1.2em;
 $gap: 2em;
-$gapLarge: 4em;
+$gapMidLarge: 4em;
+$gapLarge: 6em;
 
+$fontSizeSmaller: 0.9rem;
+$fontSizeSmall: 1.0rem;
 $fontSize: 1.2rem;
-$fontLineHeight: 1.3;
+$fontSizeLarge: 1.5rem;
+$fontLineHeight: 1.5;
 $fontWeight: 400;
 $fontWeightBold: 800;
 
 // <h1> <h2> <h3> <...>
-$fontSizesTitle: 2.3rem, 1.8rem, 1.5rem 1.2rem;
-$fontWeightsTitle: 400, 400, 400, 400;
+$fontSizesTitle: 2.5rem, 1.8rem, 1.5rem 1.2rem;
+$fontWeightsTitle: 800, 700, 600, 500;
 
-$borderRadius: 2em;
+$borderRadiusSmall: .25em;
+$borderRadius: .5em;
+$borderRadiusLarge: 1em;
 
 $buttonHeight: 2em;
+$checkboxHeight: 1.5em;
 
 $borderWidth: .2em;
+
+$blur: 1em;

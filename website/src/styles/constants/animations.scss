@@ -6,3 +6,12 @@ $animationSpeedFast: .1s;
 $animationSpeed: .25s;
 $animationSpeedSlow: .5s;
 $animationSpeedVerySlow: 1.5s;
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
