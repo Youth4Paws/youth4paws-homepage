@@ -24,7 +24,10 @@
 
   function resizeLongField() {
     if (!longField) return;
-    longField.style.height = `${Math.max(longField.scrollHeight, 80)}px`
+    const heightBefore = longField.getBoundingClientRect().height
+    longField.style.height = `${Math.max(longField.scrollHeight, 150)}px`
+    const heightAfter = longField.getBoundingClientRect().height
+    if (heightAfter < heightBefore) resizeLongField();
   }
 </script>
 
@@ -42,7 +45,7 @@
     font-size: dimensions.$fontSizeSmall;
     text-wrap: nowrap;
     max-width: calc(anchor-size(width) - 2 * dimensions.$borderWidth - dimensions.$gapSmall);
-    inset-inline-start: calc(anchor(start) + dimensions.$borderWidth + calc(0.5 * dimensions.$gapSmall));
+    inset-inline-start: calc(anchor(start) + dimensions.$borderWidth + 0.5 * dimensions.$gapSmall);
     transform: translateY(50%);
     overflow: hidden;
   }
@@ -53,7 +56,7 @@
     text-align: start;
     border: solid dimensions.$borderWidth var(--accentColor);
     border-radius: dimensions.$borderRadius;
-    padding: dimensions.$gapSmall;
+    padding: dimensions.$gapSmall calc(0.5 * dimensions.$gapSmall + dimensions.$borderWidth);
   }
 
   textarea {
@@ -72,7 +75,6 @@
     bind:this={longField}
     name={name}
     oninput={resizeLongField}
-    onchange={resizeLongField}
     style={`anchor-name: ${anchorName};`}
   ></textarea>
 {:else}

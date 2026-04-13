@@ -38,6 +38,7 @@
     background: transparent;
     border: 0;
     padding: 0;
+    overscroll-behavior: contain;
   }
 
   dialog::backdrop {
