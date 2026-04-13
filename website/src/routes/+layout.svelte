@@ -33,7 +33,7 @@
 		font-family: "Atkinson Hyperlegible Next", sans-serif;
 		font-optical-sizing: auto;
 		font-style: normal;
-		box-sizing: border-box;
+		box-sizing: border-box !important;
 	}
 
 	:global(body) {
@@ -46,6 +46,8 @@
 
     width: 100vw;
     overflow-x: hidden;
+
+    overscroll-behavior: contain;
 	}
 
 	:global(html) {

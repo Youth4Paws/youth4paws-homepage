@@ -37,12 +37,12 @@
       position: absolute;
       transform: scaleX(0%);
       width: 100%;
-      left: 0;
       bottom: dimensions.$borderWidth * -1;
       height: dimensions.$borderWidth;
       transition: transform animations.$animationSpeedFast ease-out;
       background-color: currentColor;
       border-radius: dimensions.$borderWidth * 0.5;
+      transform-origin: left;
   }
 
   a:hover > span::after, span.active::after {

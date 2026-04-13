@@ -73,7 +73,7 @@
       map.get(colors.$mainColors, "tertiary", "background") 0,
       color-mix(in srgb, map.get(colors.$mainColors, "tertiary", "background") var(--gradientPercentage), transparent) 100%
     );
-    backdrop-filter: blur(1em);
+    backdrop-filter: blur(dimensions.$blur);
 
     position: sticky;
     top: 0;
@@ -160,7 +160,7 @@
   .logo img {
     height: 1.5em;
     width: 1.5em;
-    border-radius: dimensions.$borderRadiusTiny;
+    border-radius: dimensions.$borderRadiusSmall;
     transition: transform animations.$animationSpeed ease-out;
   }
   

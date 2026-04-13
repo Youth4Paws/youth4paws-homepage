@@ -2,17 +2,21 @@ $mainColors: (
   primary: (
     background: hsl(0, 100%, 100%),
     foreground: hsl(177, 21%, 20%),
+    accent: hsl(152, 15%, 45%),
   ),
   secondary: (
-    background: hsl(152, 15%, 59%),
+    background: hsl(152, 15%, 55%),
     foreground: hsl(0, 50%, 98%),
+    accent: hsl(0, 50%, 98%),
   ),
   tertiary: (
     background: hsl(198, 19%, 26%),
     foreground: hsl(0, 50%, 98%),
+    accent: hsl(0, 50%, 98%),
   ),
   inherit: (
     background: inherit,
     foreground: inherit,
+    accent: currentColor,
   ),
 );

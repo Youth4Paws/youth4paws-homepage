@@ -16,7 +16,7 @@
     box-shadow: 0em .05em 1em color-mix(in srgb, currentColor 20%, transparent);
 
     padding: dimensions.$gap;
-    border-radius: dimensions.$borderRadius;
+    border-radius: dimensions.$borderRadiusLarge;
 
     transition: transform animations.$cubic animations.$animationSpeed;
 

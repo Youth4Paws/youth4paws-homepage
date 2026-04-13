@@ -35,8 +35,7 @@
 
   @each $key, $val in colors.$mainColors {
     section.#{$key} {
-      background-color: map.get($val, "background");
-      color: map.get($val, "foreground");
+      @include layout.set-color("", $val);
     }
   }
 </style>

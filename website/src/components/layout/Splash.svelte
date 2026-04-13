@@ -32,9 +32,7 @@
     display: grid;
     gap: dimensions.$gap;
 
-    background-color: map.get(colors.$mainColors, "primary", "background");
-    color: map.get(colors.$mainColors, "primary", "foreground");
-
+    @include layout.set-color("primary");
     @include layout.section-dimensioning-larger;
 
     @include media.desktop-and-large {
@@ -75,7 +73,7 @@
   img {
     grid-area: logo;
     width: 100%;
-    border-radius: dimensions.$borderRadius;
+    border-radius: dimensions.$borderRadiusLarge;
 
     @include media.phone {
       width: 50%;
