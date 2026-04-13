@@ -1,10 +1,13 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+    import Loading from "../decoration/Loading.svelte";
 
   interface Props {
     href?: string;
     onclick?: () => void;
     submit?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
     children: Snippet;
   }
 
@@ -12,8 +15,14 @@
     href = "",
     onclick = () => {},
     submit = false,
+    disabled = false,
+    loading = false,
     children
   }: Props = $props();
+
+  function click() {
+    if (!disabled && !loading) onclick();
+  }
 </script>
 
 <style lang="scss">
@@ -45,22 +54,45 @@
     align-items: center;
     justify-content: center;
 
+    position: relative;
+
     cursor: pointer;
     user-select: none;
+
+    &:hover, &:focus, &.loading {
+      background-position: calc(-100% - 2 * dimensions.$borderWidth) 0;
+      color: var(--backgroundColor);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
-  button:hover, a:hover {
-    background-position: calc(-100% - 2 * dimensions.$borderWidth) 0;
+  div.loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--accentColor);
     color: var(--backgroundColor);
   }
 </style>
 
 {#if href !== undefined && href.length > 0}
-  <a href={href} onclick={onclick}>
-    {@render children()}
+  <a href={href} onclick={click} class:disabled class:loading>
+    {@render contents()}
   </a>
 {:else}
-  <button onclick={onclick} type={submit ? "submit" : "button"}>
-    {@render children()}
+  <button disabled={disabled} onclick={click} type={submit ? "submit" : "button"} class:disabled class:loading>
+    {@render contents()}
   </button>
 {/if}
+
+{#snippet contents()}
+  {@render children()}
+  {#if loading}
+    <div class="loading">
+      <Loading/>
+    </div>
+  {/if}
+{/snippet}

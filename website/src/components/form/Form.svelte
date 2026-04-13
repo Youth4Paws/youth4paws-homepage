@@ -3,6 +3,9 @@
     import Button from "../interactive/Button.svelte";
     import { enhance } from "$app/forms";
     import Title from "../text/Title.svelte";
+    import Paragraph from "../layout/Paragraph.svelte";
+    import { TriangleAlert } from "lucide-svelte";
+    import Checkbox from "../interactive/Checkbox.svelte";
 
   interface Props {
     open: () => void;
@@ -23,6 +26,9 @@
   open = () => {
     if (dialog) dialog.showModal();
   };
+
+  let loading = $state(false);
+  let error = $state("");
 </script>
 
 <style lang="scss">
@@ -81,26 +87,60 @@
     width: 100%;
     display: flex;
     justify-content: end;
+    gap: dimensions.$gapSmall;
+  }
+
+  div.error {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: dimensions.$gapTiny;
+    font-weight: dimensions.$fontWeight;
+		font-size: dimensions.$fontSize;
+    line-height: dimensions.$fontLineHeight;
   }
 </style>
 
 <dialog
   bind:this={dialog}
   closedby="any"
+  onclose={() => { error = ""; }}
 >
-<form
-  id={id}
-  method="POST"
-  use:enhance={() => { return async ({ update }) => { update({ reset: false }) } }}
->
-  <Title>{title}</Title>
+  <form
+    method="POST"
+    use:enhance={() => {
+      loading = true;
+      return async ({ update, result }) => {
+        const success = result.type === "success";
+        await update({ reset: success }) 
+        loading = false;
+        console.log(result);
+        if (success) dialog?.close();
+        // @ts-ignore
+        else error = result.data ?? "Es ist ein Fehler aufgetreten.";
+      };
+    }}
+  >
+    <Title>{title}</Title>
 
-  {@render children()}
+    {@render children()}
 
-  <div class="buttons">
-    <Button submit={true}>
-      Abschicken
-    </Button>
-  </div>
-</form>
+    <input type="hidden" name="form" value={id}/>
+
+    <Checkbox name="consent">Ich bin mit dem verarbeiten meiner Daten zwecks meines Anliegens einverstanden.</Checkbox>
+
+    <div class="buttons">
+      {#if error}
+        <div class="error">
+          <TriangleAlert/>
+          {error}
+        </div>
+      {/if}
+      <Button submit={true} loading={loading}>
+        Abschicken
+      </Button>
+    </div>
+  </form>
 </dialog>

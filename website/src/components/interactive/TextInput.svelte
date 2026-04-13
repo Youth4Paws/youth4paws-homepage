@@ -1,10 +1,11 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+  import { onMount } from "svelte";
 
   interface Props {
     name: string;
     label: string;
     placeholder?: string;
+    type?: string;
     long?: boolean;
   }
 
@@ -12,6 +13,7 @@
     name,
     label,
     placeholder = "",
+    type = "text",
     long = false,
   }: Props = $props();
 
@@ -39,6 +41,7 @@
 
   label {
     background-color: var(--backgroundColor);
+    color: var(--accentColor);
     position: absolute;
     position-area: top left;
     padding: 0 dimensions.$gapTiny;
@@ -57,6 +60,10 @@
     border: solid dimensions.$borderWidth var(--accentColor);
     border-radius: dimensions.$borderRadius;
     padding: dimensions.$gapSmall calc(0.5 * dimensions.$gapSmall + dimensions.$borderWidth);
+
+    font-weight: dimensions.$fontWeight;
+		font-size: dimensions.$fontSize;
+    line-height: dimensions.$fontLineHeight;
   }
 
   textarea {
@@ -76,11 +83,14 @@
     name={name}
     oninput={resizeLongField}
     style={`anchor-name: ${anchorName};`}
+    required
   ></textarea>
 {:else}
   <input
     name={name}
     placeholder={placeholder}
     style={`anchor-name: ${anchorName};`}
+    type={type}
+    required
   />
 {/if}

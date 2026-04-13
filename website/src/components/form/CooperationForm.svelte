@@ -13,33 +13,34 @@
   }: Props = $props();
 </script>
 
-<Form title="Kooperation" id="cooperation" bind:open>
+<Form title="Kooperation" id="Kooperation" bind:open>
   <TextInput
-    name="surname"
+    name="Vorname"
     label="Vorname"
     placeholder="Max"
   />
 
   <TextInput
-    name="lastname"
-    label="Name"
+    name="Nachname"
+    label="Nachname"
     placeholder="Mustermann"
   />
 
   <TextInput
-    name="email"
+    name="E-Mail"
     label="E-Mail Adresse"
     placeholder="max.mustermann@beispiel.de"
+    type="email"
   />
 
   <TextInput
-    name="phone"
+    name="Telefonnummer"
     label="Telefonnummer"
     placeholder="89 99998 123"
   />
 
   <TextInput
-    name="desc"
+    name="Anliegen"
     label="Wie können wir dir helfen?"
     long={true}
   />

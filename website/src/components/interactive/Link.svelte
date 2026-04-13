@@ -45,8 +45,12 @@
       transform-origin: left;
   }
 
-  a:hover > span::after, span.active::after {
-      transform: scaleX(100%);
+  a:hover > span::after, a:focus > span::after, span.active::after {
+    transform: scaleX(100%);
+  }
+
+  a:focus {
+    outline: none;
   }
 
   span::before {

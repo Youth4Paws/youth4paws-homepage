@@ -24,6 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"@lucide/svelte": "^0.563.1",
+		"@notionhq/client": "^5.17.0",
 		"lucide-svelte": "^0.545.0"
 	}
 }

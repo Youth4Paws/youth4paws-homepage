@@ -13,39 +13,40 @@
   }: Props = $props();
 </script>
 
-<Form title="Mitmachen" id="join" bind:open>
+<Form title="Mitmachen" id="Mitmachen" bind:open>
   <TextInput
-    name="surname"
+    name="Vorname"
     label="Vorname"
     placeholder="Max"
   />
 
   <TextInput
-    name="lastname"
-    label="Name"
+    name="Nachname"
+    label="Nachname"
     placeholder="Mustermann"
   />
 
   <TextInput
-    name="email"
+    name="E-Mail"
     label="E-Mail Adresse"
     placeholder="max.mustermann@beispiel.de"
+    type="email"
   />
 
   <TextInput
-    name="occupation"
+    name="Beruf"
     label="Beruf"
     placeholder="Schüler/Student/..."
   />
 
   <TextInput
-    name="location"
+    name="Wohnsitz"
     label="Aktueller Wohnsitz (Stadt)"
     placeholder="München"
   />
 
   <TextInput
-    name="interest"
+    name="Motivation"
     label="Was treibt dich zu Youth4Paws?"
     long={true}
   />
@@ -63,19 +64,19 @@
   </Paragraph>
 
   <TextInput
-    name="area"
+    name="Engagement"
     label="Wo könntest du dir vorstellen mitzuhelfen?"
     long={true}
   />
 
   <TextInput
-    name="workload"
+    name="Zeitinvestment"
     label="Wie viel Zeit pro Woche planst du für dein Engagement?"
     placeholder="3–4 Stunden"
   />
 
   <TextInput
-    name="referral"
+    name="Referral"
     label="Wie bist du auf uns aufmerksam geworden?"
     placeholder="Internet/Freunde/..."
   />
