@@ -67,6 +67,7 @@
 
   .navbar {
     all: unset;
+    box-sizing: content-box !important;
     color: map.get(colors.$mainColors, "tertiary", "foreground");
     background: linear-gradient(
       180deg,
