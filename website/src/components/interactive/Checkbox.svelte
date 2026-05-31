@@ -16,6 +16,7 @@
 
 <style lang="scss">
   @use "sass:math";
+  @use "sass:map";
 
   @use "../../styles/constants/animations.scss";
   @use "../../styles/constants/colors.scss";
@@ -36,6 +37,8 @@
   }
 
   input {
+    --outlineColor: #{map.get(colors.$mainColors, "secondary", "background")};
+
     font-weight: dimensions.$fontWeight;
 		font-size: dimensions.$fontSize;
     line-height: dimensions.$fontLineHeight;
@@ -44,7 +47,7 @@
     margin: 0;
     width: dimensions.$checkboxHeight;
     height: dimensions.$checkboxHeight;
-    border: solid dimensions.$borderWidth var(--accentColor);
+    border: solid dimensions.$borderWidth var(--outlineColor);
     border-radius: dimensions.$borderRadius;
     flex-shrink: 0;
     
@@ -64,10 +67,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--accentColor);
+      background-color: var(--outlineColor);
       transform: scale(0) translate(-2px, -2px);
       transition: transform ease-out animations.$animationSpeedFast;
-      border: solid 2px var(--accentColor);
+      border: solid 2px var(--outlineColor);
       border-radius: inherit; 
     }
 

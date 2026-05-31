@@ -24,6 +24,7 @@
 @mixin set-color($color, $map: map.get(colors.$mainColors, $color)) {
   background-color: map.get($map, "background");
   color: map.get($map, "foreground");
+  --color: #{map.get($map, "foreground")};
   --backgroundColor: #{map.get($map, "background")};
   --accentColor: #{map.get($map, "accent")};
 }

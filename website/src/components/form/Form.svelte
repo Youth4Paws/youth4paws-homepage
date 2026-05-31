@@ -138,7 +138,7 @@
           {error}
         </div>
       {/if}
-      <Button submit={true} loading={loading}>
+      <Button submit={true} loading={loading} accent={true}>
         Abschicken
       </Button>
     </div>

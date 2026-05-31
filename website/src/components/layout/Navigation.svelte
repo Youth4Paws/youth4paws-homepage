@@ -2,6 +2,7 @@
   import { Menu } from "lucide-svelte";
   import Link from "../interactive/Link.svelte";
 	import { afterNavigate, beforeNavigate } from "$app/navigation";
+    import StylizedTextLogo from "../decoration/StylizedTextLogo.svelte";
 
   let scrollY = $state(0);
   let clientHeight = $state(1000);
@@ -65,7 +66,7 @@
   @use "../../styles/constants/media.scss";
   @use "../../styles/mixins/layout.scss";
 
-  .navbar {
+  nav {
     all: unset;
     color: map.get(colors.$mainColors, "tertiary", "foreground");
     background: linear-gradient(
@@ -147,7 +148,6 @@
     align-items: center;
     gap: dimensions.$gapSmaller;
     font-size: dimensions.$fontSizeLarge;
-    font-weight: dimensions.$fontWeightBold;
     transition: transform animations.$animationSpeed ease-out;
     grid-area: logo;
     cursor: pointer;
@@ -170,7 +170,6 @@
 </style>
 
 <nav
-  class="navbar"
   class:open={burgerOpen}
   class:transition
   style="--gradientPercentage: {100 - 20 * Math.min(Math.max(scrollY, 0) / (clientHeight * 2), 1)}%; --linksHeight: {linksHeight}px"
@@ -180,7 +179,7 @@
 >
   <a href="/" class="logo">
     <img src="/img/logo.svg" alt="Youth4Paws Logo" />
-    <span>Youth4Paws</span>
+    <StylizedTextLogo/>
   </a>
 
   <div class="links" bind:clientHeight={linksHeight}>

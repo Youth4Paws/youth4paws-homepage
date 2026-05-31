@@ -3,19 +3,21 @@
   import Title from "../text/Title.svelte";
 
   interface Props {
-    title: string;
+    title?: string;
     imgSrc: string;
     imgAlt: string;
     children: Snippet;
     buttons?: Snippet;
+    titleSnippet?: Snippet;
   }
 
 	let {
-    title,
+    title = "",
     imgSrc,
     imgAlt,
     children,
-    buttons
+    buttons,
+    titleSnippet,
   }: Props = $props();
 </script>
 
@@ -83,9 +85,15 @@
 
 <section>
   <div class="wrapper">
-    <Title>
-      {title}
-    </Title>
+    {#if title.length != 0 || titleSnippet !== undefined}
+      <Title>
+        {#if titleSnippet !== undefined}
+          {@render titleSnippet()}
+        {:else}
+          {title}
+        {/if}
+      </Title>
+    {/if}
 
     {@render children()}
 

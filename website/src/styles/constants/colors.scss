@@ -1,22 +1,39 @@
+$petrolInk: #173A41;
+$petrol: #2F7178;
+$petrolDeep: #1F555A;
+$softGold: #EAB85A;
+$goldLight: #F4DCA3;
+$offWhite: #F9F4EB;
+
 $mainColors: (
   primary: (
-    background: hsl(0, 100%, 100%),
-    foreground: hsl(177, 21%, 20%),
-    accent: hsl(152, 15%, 45%),
+    background: $offWhite,
+    foreground: $petrolInk,
+    accent: $softGold,
   ),
   secondary: (
-    background: hsl(152, 15%, 55%),
-    foreground: hsl(0, 50%, 98%),
-    accent: hsl(0, 50%, 98%),
+    background: $petrol,
+    foreground: $offWhite,
+    accent: $softGold,
   ),
   tertiary: (
-    background: hsl(198, 19%, 26%),
-    foreground: hsl(0, 50%, 98%),
-    accent: hsl(0, 50%, 98%),
+    background: $petrolDeep,
+    foreground: $offWhite,
+    accent: $softGold,
+  ),
+  accent: (
+    background: $softGold,
+    foreground: $petrolInk,
+    accent: $goldLight,
+  ),
+  accentLight: (
+    background: $goldLight,
+    foreground: $petrolInk,
+    accent: $softGold,
   ),
   inherit: (
     background: inherit,
     foreground: inherit,
-    accent: currentColor,
+    accent: $softGold,
   ),
 );
