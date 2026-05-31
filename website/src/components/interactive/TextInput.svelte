@@ -34,16 +34,22 @@
 </script>
 
 <style lang="scss">
+  @use "sass:map";
   @use "sass:math";
 
   @use "../../styles/constants/colors.scss";
   @use "../../styles/constants/dimensions.scss";
 
+  label, textarea, input {
+    --outlineColor: #{map.get(colors.$mainColors, "secondary", "background")};
+  }
+
   label {
     background-color: var(--backgroundColor);
-    color: var(--accentColor);
+    color: var(--outlineColor);
     position: absolute;
-    position-area: top left;
+    position-area: top;
+    position-visibility: always;
     padding: 0 dimensions.$gapTiny;
     font-size: dimensions.$fontSizeSmall;
     text-wrap: nowrap;
@@ -57,7 +63,7 @@
     all: unset;
     width: 100%;
     text-align: start;
-    border: solid dimensions.$borderWidth var(--accentColor);
+    border: solid dimensions.$borderWidth var(--outlineColor);
     border-radius: dimensions.$borderRadius;
     padding: dimensions.$gapSmall calc(0.5 * dimensions.$gapSmall + dimensions.$borderWidth);
 

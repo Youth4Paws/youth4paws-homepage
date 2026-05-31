@@ -45,6 +45,7 @@
     border: 0;
     padding: 0;
     overscroll-behavior: contain;
+    overflow: hidden;
   }
 
   dialog::backdrop {
@@ -74,13 +75,10 @@
     max-width: max-content;
     min-width: 40vw;
     max-width: 60em;
+    
+    max-height: 90vh;
 
     align-items: start;
-
-    position: relative;
-
-    overscroll-behavior: contain;
-    overflow: hidden;
   }
 
   div.buttons {
@@ -138,7 +136,7 @@
           {error}
         </div>
       {/if}
-      <Button submit={true} loading={loading}>
+      <Button submit={true} loading={loading} accent={true}>
         Abschicken
       </Button>
     </div>

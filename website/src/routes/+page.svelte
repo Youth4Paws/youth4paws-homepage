@@ -11,6 +11,7 @@
   import CardContainer from "../components/layout/CardContainer.svelte";
   import JoinForm from "../components/form/JoinForm.svelte";
   import CooperationForm from "../components/form/CooperationForm.svelte";
+    import StylizedTextLogo from "../components/decoration/StylizedTextLogo.svelte";
 
   let openJoinForm = $state(() => {});
   let openCooperationForm = $state(() => {});
@@ -19,12 +20,15 @@
 <JoinForm bind:open={openJoinForm}/>
 <CooperationForm bind:open={openCooperationForm}/>
 
-<Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
+<Splash imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
+  {#snippet titleSnippet()}
+    <StylizedTextLogo/>
+  {/snippet}
   <Paragraph>
-    Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
+    <StylizedTextLogo/> ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
-    <Button onclick={openJoinForm}>
+    <Button onclick={openJoinForm} accent={true}>
       Mitmachen
     </Button>
     <Button onclick={openCooperationForm}>
@@ -35,7 +39,7 @@
 
 <Section title="Wer sind wir?" tag="introduction" color="secondary">
   <Paragraph>
-    <Bold>Youth4Paws</Bold> ist eine in München beheimatete, überwiegend studentisch geführte Initiative, die sich mit Leidenschaft und Tatkraft dem lokalen Tierschutz verschrieben hat. Unser Leitsatz lautet: <Bold>Weniger reden — mehr handeln</Bold>.
+    <StylizedTextLogo/> ist eine in München beheimatete, überwiegend studentisch geführte Initiative, die sich mit Leidenschaft und Tatkraft dem lokalen Tierschutz verschrieben hat. Unser Leitsatz lautet: <Bold>Weniger reden — mehr handeln</Bold>.
   </Paragraph>
   <Paragraph>
     Wir verstehen uns als helfende Hände für Tierschutzorganisationen, die in ihrem Alltag oder bei besonderen Projekten Unterstützung benötigen. Dabei helfen wir dort, wo gerade Bedarf besteht: <Bold>Praktisch, unkompliziert und mit Herz.</Bold>
@@ -140,7 +144,7 @@
 
 <Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer">
   <Paragraph>
-    Die Mitgliedschaft bei <Bold>Youth4Paws</Bold> ist vollständig <Bold>ehrenamtlich und unentgeltlich</Bold>.
+    Die Mitgliedschaft bei <StylizedTextLogo/> ist vollständig <Bold>ehrenamtlich und unentgeltlich</Bold>.
   </Paragraph>
   <Paragraph>
     Grundsätzlich unterscheiden wir zwei Formen der Mitarbeit. Du kannst dich entweder <Bold>direkt in Tierschutzprojekten engagieren</Bold> oder <Bold>intern in unserer Initiative mitwirken</Bold> (oder Beides!).

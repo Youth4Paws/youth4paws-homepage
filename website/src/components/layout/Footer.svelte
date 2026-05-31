@@ -2,6 +2,7 @@
 	import Bold from "../text/Bold.svelte";
 	import Link from "../interactive/Link.svelte";
 	import Paragraph from "./Paragraph.svelte";
+    import StylizedTextLogo from "../decoration/StylizedTextLogo.svelte";
 </script>
 
 <style lang="scss">
@@ -73,7 +74,7 @@
 
 <footer>
   <div class="name">
-    <Bold>Youth4Paws</Bold>
+    <StylizedTextLogo/>
   </div>
   <div class="links">
     <Paragraph small={true}>
