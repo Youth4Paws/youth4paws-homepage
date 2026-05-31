@@ -48,7 +48,8 @@
     background-color: var(--backgroundColor);
     color: var(--outlineColor);
     position: absolute;
-    position-area: top left;
+    position-area: top;
+    position-visibility: always;
     padding: 0 dimensions.$gapTiny;
     font-size: dimensions.$fontSizeSmall;
     text-wrap: nowrap;
