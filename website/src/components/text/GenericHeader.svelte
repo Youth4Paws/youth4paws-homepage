@@ -21,11 +21,12 @@
   @use "../../styles/constants/media.scss";
 
   * {
-    font-family: "Fugaz One", sans-serif;
+		font-family: "Atkinson Hyperlegible Next", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-style: normal;
     margin: 0;
     max-width: 100%;
     hyphens: auto;
+    text-align: start;
   }
 
   $highestFontSizeIndex: list.length(dimensions.$fontSizesTitle) - 1;

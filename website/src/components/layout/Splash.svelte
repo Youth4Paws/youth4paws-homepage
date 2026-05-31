@@ -1,30 +1,24 @@
 <script lang="ts">
   import { onMount, type Snippet } from "svelte";
   import Title from "../text/Title.svelte";
-  import Button from "../interactive/Button.svelte";
 
   interface Props {
-    title: string;
+    title?: string;
     imgSrc: string;
     imgAlt: string;
     children: Snippet;
     buttons?: Snippet;
+    titleSnippet?: Snippet;
   }
 
 	let {
-    title,
+    title = "",
     imgSrc,
     imgAlt,
     children,
-    buttons
+    buttons,
+    titleSnippet,
   }: Props = $props();
-
-  // Potentially overcomplicated but I wanted to avoid nesting too many elements wherever possible.
-  let descriptionWrapper: HTMLElement;
-  let wrap = $state<boolean>(true);
-  onMount(() => {
-    wrap = descriptionWrapper.children.length > 1;
-  });
 </script>
 
 <style lang="scss">
@@ -38,50 +32,50 @@
 
   section {
     display: grid;
-    gap: dimensions.$gapSmall;
+    gap: dimensions.$gap;
 
-    @include layout.section-dimensioning;
+    @include layout.set-color("primary");
+    @include layout.section-dimensioning-larger;
 
     @include media.desktop-and-large {
-      grid-auto-columns: 1fr;
-      grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
-      grid-template-areas: "title logo" "description logo" "buttons logo";
+      grid-template-columns: 1.25fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "text logo";
     }
 
     @include media.phone {
       grid-template-columns: 1fr;
       grid-auto-rows: auto;
-      grid-template-areas: "logo" "title" "description" "buttons";
+      grid-template-areas: "logo" "text";
       
       justify-items: center;
     }
   }
 
-  :global(session > h1) {
-    grid-area: title
-  }
-
-  div.description {
-    grid-area: description;
-  }
-
-  div.unwrap {
-    display: contents;
+  div.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: dimensions.$gapSmall;
   }
 
   div.buttons {
-    grid-area: buttons;
     display: flex;
     flex-direction: row;
     gap: dimensions.$gapSmall;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+
+    @include media.phone {
+      flex-direction: column;
+      gap: dimensions.$gapSmaller;
+      align-items: end;
+    }
   }
 
   img {
     grid-area: logo;
     width: 100%;
-    border-radius: dimensions.$borderRadius;
+    border-radius: dimensions.$borderRadiusLarge;
 
     @include media.phone {
       width: 50%;
@@ -90,19 +84,25 @@
 </style>
 
 <section>
-  <Title>
-    {title}
-  </Title>
+  <div class="wrapper">
+    {#if title.length != 0 || titleSnippet !== undefined}
+      <Title>
+        {#if titleSnippet !== undefined}
+          {@render titleSnippet()}
+        {:else}
+          {title}
+        {/if}
+      </Title>
+    {/if}
 
-  <div bind:this={descriptionWrapper} class="description" class:unwrap={!wrap}>
     {@render children()}
-  </div>
 
-  {#if buttons !== undefined}
-  <div class="buttons">
-    {@render buttons()}
+    {#if buttons !== undefined}
+      <div class="buttons">
+        {@render buttons()}
+      </div>
+    {/if}
   </div>
-  {/if}
 
   <img
     src={imgSrc}

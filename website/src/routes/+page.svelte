@@ -1,6 +1,5 @@
-<script>
+<script lang="ts">
   import Bold from "../components/text/Bold.svelte";
-  import Divider from "../components/text/Divider.svelte";
   import List from "../components/text/List.svelte";
   import ListElement from "../components/text/ListElement.svelte";
   import Paragraph from "../components/layout/Paragraph.svelte";
@@ -8,23 +7,39 @@
   import Subtitle from "../components/text/Subtitle.svelte";
   import Splash from "../components/layout/Splash.svelte";
   import Button from "../components/interactive/Button.svelte";
-    import Card from "../components/layout/Card.svelte";
-    import CardContainer from "../components/layout/CardContainer.svelte";
+  import Card from "../components/layout/Card.svelte";
+  import CardContainer from "../components/layout/CardContainer.svelte";
+  import JoinForm from "../components/form/JoinForm.svelte";
+  import CooperationForm from "../components/form/CooperationForm.svelte";
+    import StylizedTextLogo from "../components/decoration/StylizedTextLogo.svelte";
+
+  let openJoinForm = $state(() => {});
+  let openCooperationForm = $state(() => {});
 </script>
 
-<Splash title="Youth4Paws" imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
+<JoinForm bind:open={openJoinForm}/>
+<CooperationForm bind:open={openCooperationForm}/>
+
+<Splash imgSrc="/img/logo.svg" imgAlt="Youth4Paws Logo">
+  {#snippet titleSnippet()}
+    <StylizedTextLogo/>
+  {/snippet}
   <Paragraph>
-    Youth4Paws ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
+    <StylizedTextLogo/> ist eine Initiative von Studierenden, die sich mit Leidenschaft dem Tierschutz in und um München verschrieben hat. Vollkommen ehrenamtlich setzen wir uns dafür ein, Tierheime und Tierschutzorganisationen in vielfältiger Weise zu unterstützen. Ob beim Aufbau moderner Websites, bei rechtlichen Fragestellungen oder ganz praktisch vor Ort beim Säubern der Einrichtungen.
   </Paragraph>
   {#snippet buttons()}
-    <Button href="#volunteer">Mitmachen</Button>
-    <Button href="#cooperation">Kooperation Anfragen</Button>
+    <Button onclick={openJoinForm} accent={true}>
+      Mitmachen
+    </Button>
+    <Button onclick={openCooperationForm}>
+      Unterstützung anfragen
+    </Button>
   {/snippet}
 </Splash>
 
-<Section title="Wer sind wir?" tag="introduction">
+<Section title="Wer sind wir?" tag="introduction" color="secondary">
   <Paragraph>
-    <Bold>Youth4Paws</Bold> ist eine in München beheimatete, überwiegend studentisch geführte Initiative, die sich mit Leidenschaft und Tatkraft dem lokalen Tierschutz verschrieben hat. Unser Leitsatz lautet: <Bold>Weniger reden — mehr handeln</Bold>.
+    <StylizedTextLogo/> ist eine in München beheimatete, überwiegend studentisch geführte Initiative, die sich mit Leidenschaft und Tatkraft dem lokalen Tierschutz verschrieben hat. Unser Leitsatz lautet: <Bold>Weniger reden — mehr handeln</Bold>.
   </Paragraph>
   <Paragraph>
     Wir verstehen uns als helfende Hände für Tierschutzorganisationen, die in ihrem Alltag oder bei besonderen Projekten Unterstützung benötigen. Dabei helfen wir dort, wo gerade Bedarf besteht: <Bold>Praktisch, unkompliziert und mit Herz.</Bold>
@@ -37,7 +52,7 @@
   </Paragraph>
 </Section>
 
-<Section title="Was bieten wir genau an?" tag="offer" color="secondary">
+<Section title="Was bieten wir genau an?" tag="offer">
   <Paragraph>
     Dank der <Bold>Vielfalt</Bold> und <Bold>unterschiedlichen Fachrichtungen</Bold> unserer Mitglieder können wir Tierschutzorganisationen in zahlreichen Bereichen unterstützen.
   </Paragraph>
@@ -73,7 +88,7 @@
   </List>
 </Section>
 
-<Section title="Wie sieht eine Kooperation mit uns aus?" tag="cooperation">
+<Section title="Wie sieht eine Kooperation mit uns aus?" tag="cooperation" color="secondary">
   <Paragraph>
     Wir bieten Tierschutzorganisationen verschiedene Formen der Zusammenarbeit an, je nach Bedarf und verfügbaren Kapazitäten.
   </Paragraph>
@@ -127,9 +142,9 @@
   </CardContainer>
 </Section>
 
-<Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer" color="secondary">
+<Section title="Wie kannst du als Mitglied bei uns helfen?" tag="volunteer">
   <Paragraph>
-    Die Mitgliedschaft bei <Bold>Youth4Paws</Bold> ist vollständig <Bold>ehrenamtlich und unentgeltlich</Bold>.
+    Die Mitgliedschaft bei <StylizedTextLogo/> ist vollständig <Bold>ehrenamtlich und unentgeltlich</Bold>.
   </Paragraph>
   <Paragraph>
     Grundsätzlich unterscheiden wir zwei Formen der Mitarbeit. Du kannst dich entweder <Bold>direkt in Tierschutzprojekten engagieren</Bold> oder <Bold>intern in unserer Initiative mitwirken</Bold> (oder Beides!).
@@ -188,11 +203,3 @@
     </Card>
   </CardContainer>
 </Section>
-
-<!--
-<Section title="Our Team" tag="team" color="tertiary">
-  <Paragraph>
-    Vestibulum condimentum, est nec pellentesque imperdiet, magna mauris tincidunt mauris, non sodales nulla ligula at diam. Vivamus pharetra tincidunt libero ac dapibus. Suspendisse cursus diam a odio feugiat, dignissim ullamcorper libero eleifend. Fusce a lectus posuere ex suscipit condimentum ac vel enim. Ut viverra suscipit auctor. Fusce efficitur orci vitae ex dignissim, nec porttitor lacus ultrices. Nulla vestibulum ut augue at tincidunt. Nullam ut porttitor diam, at placerat nibh. Aenean tincidunt ligula rutrum massa facilisis bibendum. Nulla facilisi. Ut lobortis orci eros, et vestibulum lectus varius et. Nam tincidunt risus non ante vehicula, et imperdiet sapien aliquet. 
-  </Paragraph>
-</Section>
--->

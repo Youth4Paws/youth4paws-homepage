@@ -9,7 +9,7 @@
 	let {
     ordered = false,
     children
-  } = $props();
+  }: Props = $props();
 </script>
 
 <style lang="scss">
@@ -18,12 +18,15 @@
   ol, ul {
     width: 100%;
     max-width: 50em;
-    margin: 0;
+
+    padding-left: 2rem;
 
     font-weight: dimensions.$fontWeight;
-		font-size: dimensions.$fontSize;
+    font-size: dimensions.$fontSize;
 
     text-align: start;
+  
+    margin: 0;
   }
 
   ul {

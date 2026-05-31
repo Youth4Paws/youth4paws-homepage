@@ -1,5 +1,18 @@
 <script lang="ts">
-	let { children } = $props();
+  import type { Snippet } from "svelte";
+  import Subtitle from "../text/Subtitle.svelte";
+
+  interface Props {
+    subtitle?: string;
+    small?: boolean;
+    children: Snippet;
+  }
+
+  let {
+    subtitle = "",
+    small = false,
+    children
+  }: Props = $props();
 </script>
 
 <style lang="scss">
@@ -16,9 +29,28 @@
     text-align: start;
 
     hyphens: auto;
+
+    white-space: pre-line;
+  }
+
+  p.small {
+		font-size: dimensions.$fontSizeSmall;
+  }
+
+  div {
+    width: 100%;
+    margin: 0;
+    text-align: start;
   }
 </style>
 
-<p lang="de">
+{#if subtitle !== ""}
+  <div>
+    <Subtitle>
+      {subtitle}
+    </Subtitle>
+  </div>
+{/if}
+<p lang="de" class:small>
   {@render children()}
 </p>
