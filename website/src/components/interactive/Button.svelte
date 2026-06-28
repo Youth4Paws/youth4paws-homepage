@@ -93,6 +93,8 @@
     height: 100%;
     background: var(--btnHoverBackgroundColor);
     color: var(--btnHoverColor);
+
+    border-radius: inherit;
   }
 </style>
 

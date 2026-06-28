@@ -1,7 +1,12 @@
-.PHONY: run build ver
+.PHONY: run build
 
-run: ver
+run:
+	bunx drizzle-kit push
 	bun run --bun dev
 
-build: ver
+build: migrate
+	bunx drizzle-kit migrate
 	bun run --bun build
+
+generate:
+	bunx drizzle-kit generate

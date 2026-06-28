@@ -3,14 +3,16 @@
     import Button from "../interactive/Button.svelte";
     import { enhance } from "$app/forms";
     import Title from "../text/Title.svelte";
-    import Paragraph from "../layout/Paragraph.svelte";
     import { TriangleAlert } from "lucide-svelte";
     import Checkbox from "../interactive/Checkbox.svelte";
+    import { goto } from "$app/navigation";
 
   interface Props {
-    open: () => void;
+    open?: () => void;
     title: string;
     id:  string;
+    embedded?: boolean;
+    gdpr?: boolean;
     children: Snippet;
   }
 
@@ -18,6 +20,8 @@
     open = $bindable(),
     title,
     id,
+    embedded = false,
+    gdpr = false,
     children
   }: Props = $props();
 
@@ -101,33 +105,45 @@
   }
 </style>
 
-<dialog
-  bind:this={dialog}
-  closedby="any"
-  onclose={() => { error = ""; }}
->
+{#if embedded}
+  {@render form()}
+{:else}
+  <dialog
+    bind:this={dialog}
+    closedby="any"
+    onclose={() => { error = ""; }}
+  >
+    {@render form()}
+  </dialog>
+{/if}
+
+{#snippet form()}
   <form
     method="POST"
     use:enhance={() => {
       loading = true;
       return async ({ update, result }) => {
+        if (result.type === "redirect") return await goto(result.location);
         const success = result.type === "success";
         await update({ reset: success }) 
         loading = false;
-        console.log(result);
         if (success) dialog?.close();
         // @ts-ignore
         else error = result.data ?? "Es ist ein Fehler aufgetreten.";
       };
     }}
   >
-    <Title>{title}</Title>
+    {#if !embedded}
+      <Title>{title}</Title>
+    {/if}
 
     {@render children()}
 
     <input type="hidden" name="form" value={id}/>
 
-    <Checkbox name="consent">Ich bin mit dem verarbeiten meiner Daten zwecks meines Anliegens einverstanden.</Checkbox>
+    {#if gdpr}
+      <Checkbox name="consent" required={true}>Ich bin mit dem verarbeiten meiner Daten zwecks meines Anliegens einverstanden.</Checkbox>
+    {/if}
 
     <div class="buttons">
       {#if error}
@@ -141,4 +157,4 @@
       </Button>
     </div>
   </form>
-</dialog>
+{/snippet}

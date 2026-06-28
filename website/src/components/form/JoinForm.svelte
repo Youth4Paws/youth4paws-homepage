@@ -13,7 +13,7 @@
   }: Props = $props();
 </script>
 
-<Form title="Mitmachen" id="Mitmachen" bind:open>
+<Form title="Mitmachen" id="Mitmachen" gdpr={true} bind:open>
   <TextInput
     name="Vorname"
     label="Vorname"

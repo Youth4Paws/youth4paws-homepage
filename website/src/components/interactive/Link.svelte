@@ -43,6 +43,7 @@
       background-color: currentColor;
       border-radius: dimensions.$borderWidth * 0.5;
       transform-origin: left;
+      left: 0;
   }
 
   a:hover > span::after, a:focus > span::after, span.active::after {

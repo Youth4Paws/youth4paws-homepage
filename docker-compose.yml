@@ -1,10 +1,12 @@
 name: youth4paws
+
 services:
   youth4paws-homepage:
     container_name: youth4paws-homepage
     ports:
       - "8080:8080"
     volumes:
+      - /srv/paws/postgres.sock:/srv/paws/postgres.sock
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
@@ -12,3 +14,16 @@ services:
     build:
       context: website
       dockerfile: Dockerfile
+
+  youth4paws-postgres:
+    image: postgres:16-alpine
+    container_name: youth4paws-postgres
+    volumes:
+      - /srv/paws/postgres:/var/lib/postgresql/data
+      - /srv/paws/postgres.sock:/var/run/postgresql
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
