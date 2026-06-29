@@ -1,8 +1,8 @@
 import { fail, redirect } from "@sveltejs/kit";
-import { db } from '../../../lib/server/db';
-import { usersTable } from '../../../lib/server/schema';
-import { setAuthCookie, verifyPassword } from "../../../lib/server/auth";
-import { getRedirectPage } from "../../../lib/common/parsing";
+import { db } from '../../lib/server/db';
+import { usersTable } from '../../lib/server/schema';
+import { setAuthCookie, verifyPassword } from "../../lib/server/auth";
+import { getRedirectPage } from "../../lib/common/parsing";
 import { eq } from "drizzle-orm";
 
 export const actions = {

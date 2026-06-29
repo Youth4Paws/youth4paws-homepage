@@ -201,7 +201,7 @@
       Datenschutz
     </Link>
     {#if loggedIn}
-      <Link href="/logout">
+      <Link href="/logout" reload>
         Ausloggen
       </Link>
     {/if}

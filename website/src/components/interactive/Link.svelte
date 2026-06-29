@@ -4,11 +4,13 @@
 
   interface Props {
     href: string;
+    reload?: boolean;
     children: Snippet;
   }
 
   let {
     href,
+    reload = false,
     children
   }: Props = $props();
 </script>
@@ -68,7 +70,7 @@
   }
 </style>
 
-<a href={href}>
+<a href={href} {...(reload ? { 'data-sveltekit-reload': '' } : {})}>
   <span class:active={page.url.pathname === href}>
     {@render children()}
   </span>

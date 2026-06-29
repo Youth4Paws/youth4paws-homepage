@@ -5,7 +5,7 @@
     import Title from "../text/Title.svelte";
     import { TriangleAlert } from "lucide-svelte";
     import Checkbox from "../interactive/Checkbox.svelte";
-    import { goto } from "$app/navigation";
+    import { goto, invalidateAll } from "$app/navigation";
 
   interface Props {
     open?: () => void;
@@ -123,7 +123,10 @@
     use:enhance={() => {
       loading = true;
       return async ({ update, result }) => {
-        if (result.type === "redirect") return await goto(result.location);
+        if (result.type === "redirect") {
+          invalidateAll();
+          return await goto(result.location);
+        }
         const success = result.type === "success";
         await update({ reset: success }) 
         loading = false;
