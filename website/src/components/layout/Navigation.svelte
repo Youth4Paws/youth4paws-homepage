@@ -201,6 +201,9 @@
       Datenschutz
     </Link>
     {#if loggedIn}
+      <Link href="/dashboard">
+        Dashboard
+      </Link>
       <Link href="/logout" reload>
         Ausloggen
       </Link>
