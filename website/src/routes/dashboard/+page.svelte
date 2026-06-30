@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Users } from "lucide-svelte";
   import Section from "../../components/layout/Section.svelte";
-  import { Handshake } from "@lucide/svelte";
+  import { FileText, Handshake } from "@lucide/svelte";
 
   const categories: { name: string, page: string, icon: any }[] = [
     { name: "Benutzer", page: "/dashboard/users", icon: Users },
     { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake },
-    { name: "Projektberichte", page: "/dashboard/reports", icon: Users },
+    { name: "Projektberichte", page: "/dashboard/reports", icon: FileText },
   ]
 </script>
 
