@@ -4,6 +4,7 @@
   import { ChartNoAxesCombined, FileText, Handshake } from "@lucide/svelte";
   import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
   import { Permission } from "../../types/permissions";
+  import { checkUserPermissions } from "../../lib/common/permissions";
 
 	let { data } = $props();
 
@@ -14,7 +15,7 @@
     { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
   ]
 
-  let allowedCategories = $derived(categories.filter(x => x.permissions.every(y => (data.permissions || []).includes(y))))
+  let allowedCategories = $derived(categories.filter(x => checkUserPermissions(x.permissions, data.permissions)))
 </script>
 
 <style lang="scss">

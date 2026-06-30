@@ -62,7 +62,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   if (user.valid) {
     // @ts-ignore
-    event.locals.user = user;
+    event.locals.loggedIn = user.valid;
+    // @ts-ignore
+    event.locals.user = user.user;
+    // @ts-ignore
+    event.locals.permissions = user.permissions;
   }
 
   return await resolve(event)
