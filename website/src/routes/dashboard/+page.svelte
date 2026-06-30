@@ -1,13 +1,20 @@
 <script lang="ts">
   import { Users } from "lucide-svelte";
   import Section from "../../components/layout/Section.svelte";
-  import { FileText, Handshake } from "@lucide/svelte";
+  import { ChartNoAxesCombined, FileText, Handshake } from "@lucide/svelte";
+  import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
+  import { Permission } from "../../types/permissions";
 
-  const categories: { name: string, page: string, icon: any }[] = [
-    { name: "Benutzer", page: "/dashboard/users", icon: Users },
-    { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake },
-    { name: "Projektberichte", page: "/dashboard/reports", icon: FileText },
+	let { data } = $props();
+
+  export const categories: { name: string, page: string, icon: any, permissions: Permission[] }[] = [
+    { name: "Besucher", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}/${PUBLIC_WEBSITE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
+    { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
+    { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
+    { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
   ]
+
+  let allowedCategories = $derived(categories.filter(x => x.permissions.every(y => (data.permissions || []).includes(y))))
 </script>
 
 <style lang="scss">
@@ -66,7 +73,7 @@
 
 <Section title="Dashboard">
   <div lang="de">
-    {#each categories as category}
+    {#each allowedCategories as category}
       {@const Icon = category.icon}
       <a href={category.page}>
         <Icon size={40}/>

@@ -2,7 +2,7 @@ import * as argon2 from "argon2";
 import * as jwt from "jsonwebtoken";
 import { JWT_SECRET } from "$env/static/private";
 import type { Cookies } from "@sveltejs/kit";
-import { usersTable } from '$lib/server/schema';
+import { permissionsTable, usersTable } from '$lib/server/schema';
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -24,17 +24,17 @@ export function verifyPassword(password: string, hash: string) {
   return argon2.verify(hash, password);
 }
 
-function createToken(id: number) {
+function createToken(id: string) {
   return jwt.sign({ id: id }, JWT_SECRET)
 }
 
-async function verifyToken(token: string): Promise<number> {
+async function verifyToken(token: string): Promise<string> {
   const decoded = jwt.verify(token, JWT_SECRET);
-  if (typeof(decoded) !== "object" || !("id" in decoded) || !Number.isInteger(decoded.id)) throw "Improper JWT payload";
+  if (typeof(decoded) !== "object" || !("id" in decoded)) throw "Improper JWT payload";
   return decoded.id;
 }
 
-export async function setAuthCookie(id: number, remember: boolean, cookies: Cookies) {
+export async function setAuthCookie(id: string, remember: boolean, cookies: Cookies) {
   const opts = {
     path: "/",
     httpOnly: false,
@@ -80,7 +80,7 @@ export async function verifyAuthCookie(cookies: Cookies) {
     id: usersTable.id,
     name: usersTable.name,
     email: usersTable.email,
-    active: usersTable.active,
+    active: usersTable.active
   }).from(usersTable).where(eq(
     usersTable.id, decodedId
   ))
@@ -89,9 +89,16 @@ export async function verifyAuthCookie(cookies: Cookies) {
     valid: false,
     user: null,
   }
+
+  const permissions = await db.select({
+    permission: permissionsTable.permission,
+  }).from(permissionsTable).where(eq(
+    permissionsTable.userId, user[0].id
+  ))
  
   return {
     valid: true,
     user: user[0],
+    permissions: permissions.map(x => x.permission),
   };
 }
