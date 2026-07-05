@@ -12,3 +12,8 @@ generate:
 
 migrate:
 	bunx drizzle-kit migrate
+
+init:
+	bun install
+	cd .. && docker compose up -d youth4paws-postgres
+	bunx drizzle-kit migrate
