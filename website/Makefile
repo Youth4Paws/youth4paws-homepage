@@ -14,6 +14,7 @@ migrate:
 	bunx drizzle-kit migrate
 
 init:
+	mkdir -p /srn/paws/postgres
 	bun install
 	cd .. && docker compose up -d youth4paws-postgres
 	bunx drizzle-kit migrate
