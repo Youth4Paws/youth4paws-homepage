@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Users } from "lucide-svelte";
   import Section from "../../components/layout/Section.svelte";
-  import { ChartNoAxesCombined, FileText, Handshake } from "@lucide/svelte";
-  import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
+  import { ChartNoAxesCombined, FileText, Handshake, ListChecks } from "@lucide/svelte";
+  import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
   import { Permission } from "../../types/permissions";
   import { checkUserPermissions } from "../../lib/common/permissions";
 
@@ -10,6 +10,7 @@
 
   export const categories: { name: string, page: string, icon: any, permissions: Permission[] }[] = [
     { name: "Besucher", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}/${PUBLIC_WEBSITE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
+    { name: "Kanban", page: `https://${PUBLIC_VIKUNJA_DOMAIN}`, icon: ListChecks, permissions: [] },
     { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
     { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
     { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
@@ -32,6 +33,7 @@
     flex-direction: column;
     gap: dimensions.$gapSmaller;
     align-items: center;
+    justify-content: start;
 
     font-weight: dimensions.$fontWeight;
 		font-size: dimensions.$fontSize;
