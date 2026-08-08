@@ -3,7 +3,7 @@ import type { RequestEvent, RequestHandler } from "../$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { Permission } from "../../../../../types/permissions";
 import { isValidUUID } from "$lib/common/validation";
 
