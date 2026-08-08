@@ -7,7 +7,7 @@ import { and, eq } from "drizzle-orm";
 import { Permission } from "../../../../../types/permissions";
 import { isValidUUID } from "$lib/common/validation";
 
-export const PUT: RequestHandler = async ({ locals, params }: RequestEvent) => {
+export const POST: RequestHandler = async ({ locals, params }: RequestEvent) => {
   // @ts-ignore
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
