@@ -1,6 +1,7 @@
 .PHONY: run build
 
 run:
+	bun run prepare
 	bunx drizzle-kit push
 	bun run --bun dev
 
