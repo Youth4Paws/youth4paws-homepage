@@ -1,0 +1,28 @@
+import { error, json } from "@sveltejs/kit";
+import type { RequestEvent, RequestHandler } from "../$types";
+import { checkUserPermissions } from "$lib/common/permissions";
+import { db } from "$lib/server/db";
+import { permissionsTable, usersTable } from "$lib/server/schema";
+import { and, eq } from "drizzle-orm";
+import { Permission } from "../../../../../types/permissions";
+import { isValidUUID } from "$lib/common/validation";
+
+export const GET: RequestHandler = async ({ locals, params }: RequestEvent) => {
+  // @ts-ignore
+  if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
+
+  // Check if the supplied ID is a valid UUID
+  if (!isValidUUID(params.id)) return error(400, `Invalid UUID '${params.id}'.`);
+
+  // Check if the user exists
+  if ((await db.select().from(usersTable).where(eq(usersTable.id, params.id))).length === 0) return error(404, "The specified user does not exist.");
+
+  // Fetch permissions
+  const permissions = await db.select({
+    permission: permissionsTable.permission
+  }).from(permissionsTable).where(eq(
+    permissionsTable.userId, params.id
+  ));
+
+  return json({ permissions: permissions.map(x => x.permission) });
+}

@@ -42,7 +42,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         },
       })
     }
-  } else if (["/dashboard"].some(x => currentUrl.pathname.startsWith(x))) {
+  } else if (["/dashboard", "/api"].some(x => currentUrl.pathname.startsWith(x))) {
     if (!user.valid) {
       return new Response(null, {
         status: 302,
