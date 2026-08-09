@@ -7,6 +7,30 @@ import { eq } from "drizzle-orm";
 import { Permission } from "../../../../../types/permissions";
 import { isValidUUID } from "$lib/common/validation";
 
+/**
+ * @swagger
+ * /api/user/{id}/activate:
+ *   post:
+ *     summary: Activate user account
+ *     tags:
+ *       - users
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         type: string
+ *         format: uuid
+ *         required: true
+ *         description: ID of the user account to activate
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Malformed ID
+ *       401:
+ *         description: Unauthorized
+ *       404:
+ *         description: User does not exist
+ */
 export const POST: RequestHandler = async ({ locals, params }: RequestEvent) => {
   // @ts-ignore
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
