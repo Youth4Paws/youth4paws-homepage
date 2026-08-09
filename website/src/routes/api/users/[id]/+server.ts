@@ -1,5 +1,5 @@
 import { error, json } from "@sveltejs/kit";
-import type { RequestEvent, RequestHandler } from "../$types";
+import type { RequestEvent, RequestHandler } from "./$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";

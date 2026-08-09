@@ -1,5 +1,5 @@
 import { error, json } from "@sveltejs/kit";
-import type { RequestEvent, RequestHandler } from "../../$types";
+import type { RequestEvent, RequestHandler } from "./$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";
@@ -42,7 +42,7 @@ export const PUT: RequestHandler = async ({ locals, params }: RequestEvent) => {
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
   // Check if the permission exists
-  if (!Object.values(Permission).includes(params.permission)) return error(400, `Permission with name '${params.permission}' does not exist.`);
+  if (!(Object.values(Permission) as string[]).includes(params.permission)) return error(400, `Permission with name '${params.permission}' does not exist.`);
 
   // Check if the supplied ID is a valid UUID
   if (!isValidUUID(params.id)) return error(400, `Invalid UUID '${params.id}'.`);
@@ -109,7 +109,7 @@ export const DELETE: RequestHandler = async ({ locals, params }: RequestEvent) =
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
   // Check if the permission exists
-  if (!Object.values(Permission).includes(params.permission)) return error(400, `Permission with name '${params.permission}' does not exist.`);
+  if (!(Object.values(Permission) as string[]).includes(params.permission)) return error(400, `Permission with name '${params.permission}' does not exist.`);
 
   // Check if the supplied ID is a valid UUID
   if (!isValidUUID(params.id)) return error(400, `Invalid UUID '${params.id}'.`);
