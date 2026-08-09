@@ -1,6 +1,28 @@
-import { boolean, integer, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
 import { Permission } from "../../types/permissions";
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     user:
+ *       type: object
+ *       required:
+ *         - id
+ *         - name
+ *         - email
+ *       properties:
+ *         id:
+ *           type: string
+ *           format: uuid
+ *         name:
+ *           type: string
+ *         email:
+ *           type: string
+ *           format: email
+ *         active:
+ *           type: boolean
+ */
 export const usersTable = pgTable("users", {
   id: uuid().notNull().primaryKey().defaultRandom(),
   name: varchar({ length: 32 }).notNull().unique(),

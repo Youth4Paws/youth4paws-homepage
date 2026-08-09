@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Users } from "lucide-svelte";
   import Section from "../../components/layout/Section.svelte";
-  import { ChartNoAxesCombined, FileText, Handshake, ListChecks } from "@lucide/svelte";
+  import { ChartNoAxesCombined, FileText, Handshake, ListChecks, Unplug } from "@lucide/svelte";
   import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
   import { Permission } from "../../types/permissions";
   import { checkUserPermissions } from "../../lib/common/permissions";
@@ -14,6 +14,7 @@
     { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
     { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
     { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
+    { name: "API Docs", page: "/docs", icon: Unplug, permissions: [ Permission.Developer ] },
   ]
 
   let allowedCategories = $derived(categories.filter(x => checkUserPermissions(x.permissions, data.permissions)))

@@ -12,6 +12,7 @@
 		"svelte-adapter-bun": "^1.0.0",
 		"svelte-check": "^4.3.2",
 		"svelte-preprocess": "^6.0.3",
+		"sveltekit-openapi-generator": "^0.1.6",
 		"tslib": "^2.8.1",
 		"tsx": "^4.22.4",
 		"typescript": "^5.9.3",
@@ -35,6 +36,7 @@
 		"drizzle-orm": "^1.0.0-rc.4",
 		"jsonwebtoken": "^9.0.3",
 		"lucide-svelte": "^0.545.0",
-		"pg": "^8.22.0"
+		"pg": "^8.22.0",
+		"swagger-ui-dist": "^5.32.12"
 	}
 }
