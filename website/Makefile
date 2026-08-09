@@ -5,7 +5,8 @@ run:
 	bunx drizzle-kit push
 	bun run --bun dev
 
-build: migrate
+build:
+	bunx drizzle-kit push
 	bun run --bun build
 
 generate:
