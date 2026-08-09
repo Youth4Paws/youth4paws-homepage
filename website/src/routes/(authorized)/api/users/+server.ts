@@ -3,7 +3,7 @@ import type { RequestEvent, RequestHandler } from "./$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { usersTable } from "$lib/server/schema";
-import { Permission } from "../../../types/permissions";
+import { Permission } from "../../../../types/permissions";
 
 /**
  * @swagger

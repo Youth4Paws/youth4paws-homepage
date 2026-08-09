@@ -4,7 +4,7 @@ import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";
 import { eq } from "drizzle-orm";
-import { Permission } from "../../../../../types/permissions";
+import { Permission } from "../../../../../../types/permissions";
 import { isValidUUID } from "$lib/common/validation";
 
 /**

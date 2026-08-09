@@ -1,16 +1,18 @@
 <script lang="ts">
   import { Users } from "lucide-svelte";
-  import Section from "../../components/layout/Section.svelte";
-  import { ChartNoAxesCombined, FileText, Handshake, ListChecks, Unplug } from "@lucide/svelte";
-  import { PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
-  import { Permission } from "../../types/permissions";
-  import { checkUserPermissions } from "../../lib/common/permissions";
+  import Section from "../../../components/layout/Section.svelte";
+  import { ChartNoAxesCombined, Cloud, FileText, Handshake, ListChecks, Unplug, User } from "@lucide/svelte";
+  import { PUBLIC_NEXTCLOUD_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
+  import { Permission } from "../../../types/permissions";
+  import { checkUserPermissions } from "../../../lib/common/permissions";
 
 	let { data } = $props();
 
   export const categories: { name: string, page: string, icon: any, permissions: Permission[] }[] = [
-    { name: "Besucher", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}/${PUBLIC_WEBSITE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
     { name: "Kanban", page: `https://${PUBLIC_VIKUNJA_DOMAIN}`, icon: ListChecks, permissions: [] },
+    { name: "Cloud", page: `https://${PUBLIC_NEXTCLOUD_DOMAIN}`, icon: Cloud, permissions: [] },
+    { name: "Reach", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
+    { name: "Mein Profil", page: "/dashboard/profile", icon: User, permissions: [] },
     { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
     { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
     { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
@@ -23,9 +25,9 @@
 <style lang="scss">
   @use "sass:map";
 
-  @use "../../styles/constants/animations.scss";
-  @use "../../styles/constants/colors.scss";
-  @use "../../styles/constants/dimensions.scss";
+  @use "../../../styles/constants/animations.scss";
+  @use "../../../styles/constants/colors.scss";
+  @use "../../../styles/constants/dimensions.scss";
 
   a {
     text-decoration: none;

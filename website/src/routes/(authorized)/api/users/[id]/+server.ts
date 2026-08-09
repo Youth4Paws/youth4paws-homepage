@@ -3,15 +3,16 @@ import type { RequestEvent, RequestHandler } from "./$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { Permission } from "../../../../../types/permissions";
 import { isValidUUID } from "$lib/common/validation";
+import { and } from "drizzle-orm";
 
 /**
  * @swagger
- * /api/user/{id}/deactivate:
- *   post:
- *     summary: Deactivate user account
+ * /api/user/{id}:
+ *   delete:
+ *     summary: Delete user account
  *     tags:
  *       - users
  *     parameters:
@@ -20,7 +21,7 @@ import { isValidUUID } from "$lib/common/validation";
  *         type: string
  *         format: uuid
  *         required: true
- *         description: ID of the user account to deactivate
+ *         description: ID of the user account to delete
  *     responses:
  *       200:
  *         description: Success
@@ -31,7 +32,7 @@ import { isValidUUID } from "$lib/common/validation";
  *       404:
  *         description: User does not exist
  */
-export const POST: RequestHandler = async ({ locals, params }: RequestEvent) => {
+export const DELETE: RequestHandler = async ({ locals, params }: RequestEvent) => {
   // @ts-ignore
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
@@ -52,14 +53,12 @@ export const POST: RequestHandler = async ({ locals, params }: RequestEvent) => 
   // If the user does not exist, fail
   if (targetUser.length == 0) return error(404, "Specified user does not exsit.");
 
-  // If the user is an administrator, only they can deactivate their own account
+  // If the user is an administrator, only they can delete their own account.
   // @ts-ignore
   if (targetUser[0].isAdmin !== null && locals.user.id !== targetUser[0].id) return error(401);
 
-  // Deactivate the user's account
-  await db.update(usersTable).set({
-    active: false
-  }).where(eq(usersTable.id, targetUser[0].id));
+  // Delete the user account
+  await db.delete(usersTable).where(eq(usersTable.id, targetUser[0].id));
 
   return json({ message: "ok" });
 }

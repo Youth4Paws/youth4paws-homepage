@@ -8,6 +8,9 @@ export const handle: Handle = async ({ event, resolve }) => {
   const currentUrl = new URL(event.request.url)
   const redirectUrl = getRedirectPage(currentUrl)
 
+  const currentUrlPathnameParts = currentUrl.pathname.split("/");
+  if (currentUrlPathnameParts.pop()?.startsWith("__data")) currentUrl.pathname = currentUrlPathnameParts.join("/");
+
   if (["/login", "/register"].some(x => currentUrl.pathname.startsWith(x))) {
     if (user.valid) {
       if (user.user?.active) {
