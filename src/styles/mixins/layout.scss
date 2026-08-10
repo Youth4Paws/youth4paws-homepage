@@ -6,7 +6,7 @@
 @mixin section-dimensioning {
   align-items: center;
   $padding: max(dimensions.$gap, calc((100% - 60em) / 2));
-  padding: dimensions.$gapLarge $padding;
+  padding: dimensions.$gapMidLarge $padding dimensions.$gapMidLarge $padding;
   text-align: center;
   break-inside: avoid;
   overflow-x: hidden;

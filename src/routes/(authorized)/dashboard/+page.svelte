@@ -1,6 +1,6 @@
 <script lang="ts">
   import Section from "../../../components/layout/Section.svelte";
-  import { ChartNoAxesCombined, Cloud, ListChecks, Unplug } from "@lucide/svelte";
+  import { ChartNoAxesCombined, Cloud, ListChecks, Unplug, Users } from "@lucide/svelte";
   import { env } from "$env/dynamic/public";
   import { Permission } from "$lib/types/permissions";
   import { checkUserPermissions } from "../../../lib/common/permissions";
@@ -12,7 +12,7 @@
     { name: "Cloud", page: `https://${env.PUBLIC_NEXTCLOUD_DOMAIN}`, icon: Cloud, permissions: [] },
     { name: "Reach", page: `https://${env.PUBLIC_PLAUSIBLE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
     //{ name: "Mein Profil", page: "/dashboard/profile", icon: User, permissions: [] },
-    //{ name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
+    { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
     //{ name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
     //{ name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
     { name: "API Docs", page: "/docs", icon: Unplug, permissions: [ Permission.Developer ] },

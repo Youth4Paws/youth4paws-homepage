@@ -10,6 +10,11 @@ const config = {
 		}),
 	},
 	resolution: "server",
+	compilerOptions: {
+		experimental: {
+			async: true
+		}
+	}
 };
 
 export default config;
