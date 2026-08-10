@@ -8,7 +8,7 @@
   import Navigation from '../components/layout/Navigation.svelte';
   import Footer from '../components/layout/Footer.svelte';
 
-	let { children } = $props();
+	let { data, children } = $props();
 
   // Fix SvelteKit scrolling issue
   beforeNavigate(async () => {
@@ -76,7 +76,7 @@
 	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
-<Navigation/>
+<Navigation loggedIn={data.loggedIn}/>
 
 <main>
 	{@render children?.()}

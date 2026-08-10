@@ -4,11 +4,13 @@
 
   interface Props {
     href: string;
+    reload?: boolean;
     children: Snippet;
   }
 
   let {
     href,
+    reload = false,
     children
   }: Props = $props();
 </script>
@@ -43,6 +45,7 @@
       background-color: currentColor;
       border-radius: dimensions.$borderWidth * 0.5;
       transform-origin: left;
+      left: 0;
   }
 
   a:hover > span::after, a:focus > span::after, span.active::after {
@@ -67,7 +70,7 @@
   }
 </style>
 
-<a href={href}>
+<a href={href} {...(reload ? { 'data-sveltekit-reload': '' } : {})}>
   <span class:active={page.url.pathname === href}>
     {@render children()}
   </span>

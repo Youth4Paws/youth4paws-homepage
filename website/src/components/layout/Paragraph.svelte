@@ -5,12 +5,14 @@
   interface Props {
     subtitle?: string;
     small?: boolean;
+    align?: "start" | "center" | "end";
     children: Snippet;
   }
 
   let {
     subtitle = "",
     small = false,
+    align = "start",
     children
   }: Props = $props();
 </script>
@@ -26,8 +28,6 @@
 		font-size: dimensions.$fontSize;
     line-height: dimensions.$fontLineHeight;
 
-    text-align: start;
-
     hyphens: auto;
 
     white-space: pre-line;
@@ -38,9 +38,15 @@
   }
 
   div {
+    text-align: start;
     width: 100%;
     margin: 0;
-    text-align: start;
+  }
+
+  @each $align in (start, center, end) {
+    p.#{$align} {
+      text-align: $align;
+    }
   }
 </style>
 
@@ -51,6 +57,6 @@
     </Subtitle>
   </div>
 {/if}
-<p lang="de" class:small>
+<p lang="de" class:small class={align}>
   {@render children()}
 </p>

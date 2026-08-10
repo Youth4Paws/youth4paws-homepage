@@ -81,7 +81,8 @@
 			<Bold>Quick Links</Bold><br/>
 			<Link href="/">Home</Link><br/>
 			<Link href="/impressum">Impressum</Link><br/>
-			<Link href="/privacy">Datenschutz</Link>
+			<Link href="/privacy">Datenschutz</Link><br/>
+			<Link href="/dashboard">Mitgliederportal</Link>
     </Paragraph>
   </div>
   <div class="contact">

@@ -1,9 +1,9 @@
 <script>
-  import Link from "../../components/interactive/Link.svelte";
-  import Paragraph from "../../components/layout/Paragraph.svelte";
-  import Section from "../../components/layout/Section.svelte";
-  import List from "../../components/text/List.svelte";
-  import ListElement from "../../components/text/ListElement.svelte";
+  import Link from "../../../components/interactive/Link.svelte";
+  import Paragraph from "../../../components/layout/Paragraph.svelte";
+  import Section from "../../../components/layout/Section.svelte";
+  import List from "../../../components/text/List.svelte";
+  import ListElement from "../../../components/text/ListElement.svelte";
 </script>
 
 <Section title="Impressum">

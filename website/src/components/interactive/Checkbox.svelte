@@ -3,11 +3,13 @@
 
   interface Props {
     name: string;
+    required?: boolean;
     children: Snippet;
   }
 
   let {
     name,
+    required = false,
     children,
   }: Props = $props();
 
@@ -91,6 +93,6 @@
     name={name}
     type="checkbox"
     bind:checked
-    required
+    required={required}
   />
 </div>

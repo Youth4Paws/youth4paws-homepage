@@ -77,7 +77,7 @@
       Unterstützung bei <Bold>Förderanträgen</Bold> und Finanzierungsmöglichkeiten
     </ListElement>
     <ListElement>
-      <Bold>Beratung</Bold> bei <Bold>rechthlichen</Bold> und <Bold>vertraglichen</Bold> Fragestellungen
+      <Bold>Beratung</Bold> bei <Bold>rechtlichen</Bold> und <Bold>vertraglichen</Bold> Fragestellungen
     </ListElement>
     <ListElement>
       <Bold>Technische</Bold> und <Bold>IT-bezogene</Bold> Unterstützung

@@ -3,12 +3,18 @@
 	"version": "0.0.1",
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^6.2.0",
+		"@types/jsonwebtoken": "^9.0.10",
+		"@types/node": "^26.0.1",
+		"@types/pg": "^8.20.0",
+		"drizzle-kit": "^1.0.0-rc.4",
 		"sass": "^1.93.2",
 		"svelte": "^5.39.5",
 		"svelte-adapter-bun": "^1.0.0",
 		"svelte-check": "^4.3.2",
 		"svelte-preprocess": "^6.0.3",
+		"sveltekit-openapi-generator": "^0.1.6",
 		"tslib": "^2.8.1",
+		"tsx": "^4.22.4",
 		"typescript": "^5.9.3",
 		"vite": "^7.1.7"
 	},
@@ -23,8 +29,15 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth/core": "^0.41.3",
+		"@auth/sveltekit": "^1.11.3",
 		"@lucide/svelte": "^0.563.1",
 		"@notionhq/client": "^5.17.0",
-		"lucide-svelte": "^0.545.0"
+		"dotenv": "^17.4.2",
+		"drizzle-orm": "^1.0.0-rc.4",
+		"lucide-svelte": "^0.545.0",
+		"pg": "^8.22.0",
+		"svelte-guard": "^1.1.1",
+		"swagger-ui-dist": "^5.32.12"
 	}
 }

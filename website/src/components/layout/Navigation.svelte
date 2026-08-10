@@ -1,8 +1,16 @@
 <script lang="ts">
   import { Menu } from "lucide-svelte";
   import Link from "../interactive/Link.svelte";
-	import { afterNavigate, beforeNavigate } from "$app/navigation";
-    import StylizedTextLogo from "../decoration/StylizedTextLogo.svelte";
+	import { beforeNavigate } from "$app/navigation";
+  import StylizedTextLogo from "../decoration/StylizedTextLogo.svelte";
+
+  interface Props {
+    loggedIn: boolean;
+  }
+
+  let {
+    loggedIn
+  }: Props = $props();
 
   let scrollY = $state(0);
   let clientHeight = $state(1000);
@@ -37,7 +45,6 @@
     //@ts-ignore
     let e: (HTMLElement | null) = event.target;
     while (e != null && e != document.body) {
-      console.log(e, navElement, e == navElement);
       if (e == navElement) return;
       e = e.parentElement;
     }
@@ -193,6 +200,14 @@
     <Link href="/privacy">
       Datenschutz
     </Link>
+    {#if loggedIn}
+      <Link href="/dashboard">
+        Dashboard
+      </Link>
+      <Link href="/logout" reload>
+        Ausloggen
+      </Link>
+    {/if}
   </div>
 
   <button class="burger" onclick={burgerClick}>
