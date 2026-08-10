@@ -2,6 +2,7 @@ name: youth4paws
 
 services:
   homepage:
+    image: opisek/youth4paws-homepage:latest
     container_name: youth4paws-homepage
     ports:
       - "8080:8080"
@@ -11,8 +12,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       PORT: 8080
+    env_file:
+      - .env
     build:
-      context: website
+      context: .
       dockerfile: Dockerfile
     restart: unless-stopped
 

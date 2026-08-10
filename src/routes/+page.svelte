@@ -11,7 +11,7 @@
   import CardContainer from "../components/layout/CardContainer.svelte";
   import JoinForm from "../components/form/JoinForm.svelte";
   import CooperationForm from "../components/form/CooperationForm.svelte";
-    import StylizedTextLogo from "../components/decoration/StylizedTextLogo.svelte";
+  import StylizedTextLogo from "../components/decoration/StylizedTextLogo.svelte";
 
   let openJoinForm = $state(() => {});
   let openCooperationForm = $state(() => {});

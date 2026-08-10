@@ -1,17 +1,16 @@
 <script lang="ts">
-  import { Users } from "lucide-svelte";
   import Section from "../../../components/layout/Section.svelte";
-  import { ChartNoAxesCombined, Cloud, FileText, Handshake, ListChecks, Unplug, User } from "@lucide/svelte";
-  import { PUBLIC_NEXTCLOUD_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
+  import { ChartNoAxesCombined, Cloud, ListChecks, Unplug } from "@lucide/svelte";
+  import { env } from "$env/dynamic/public";
   import { Permission } from "$lib/types/permissions";
   import { checkUserPermissions } from "../../../lib/common/permissions";
 
 	let { data } = $props();
 
   export const categories: { name: string, page: string, icon: any, permissions: Permission[] }[] = [
-    { name: "Kanban", page: `https://${PUBLIC_VIKUNJA_DOMAIN}`, icon: ListChecks, permissions: [] },
-    { name: "Cloud", page: `https://${PUBLIC_NEXTCLOUD_DOMAIN}`, icon: Cloud, permissions: [] },
-    { name: "Reach", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
+    { name: "Kanban", page: `https://${env.PUBLIC_VIKUNJA_DOMAIN}`, icon: ListChecks, permissions: [] },
+    { name: "Cloud", page: `https://${env.PUBLIC_NEXTCLOUD_DOMAIN}`, icon: Cloud, permissions: [] },
+    { name: "Reach", page: `https://${env.PUBLIC_PLAUSIBLE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
     //{ name: "Mein Profil", page: "/dashboard/profile", icon: User, permissions: [] },
     //{ name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
     //{ name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },

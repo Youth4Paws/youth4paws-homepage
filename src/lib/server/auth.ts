@@ -2,7 +2,7 @@ import type { Handle } from "@sveltejs/kit";
 import { SvelteKitAuth, type SvelteKitAuthConfig } from '@auth/sveltekit';
 import type { Provider } from '@auth/core/providers';
 import Authentik from "@auth/core/providers/authentik";
-import { JWT_SECRET, AUTHENTIK_CLIENT_ID, AUTHENTIK_CLIENT_SECRET, AUTHENTIK_URL } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import { permissionsTable, usersTable } from "./schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
@@ -11,9 +11,9 @@ const config: SvelteKitAuthConfig = {
   providers: [
     Authentik({
       id: "authentik",
-      clientId: AUTHENTIK_CLIENT_ID,
-      clientSecret: AUTHENTIK_CLIENT_SECRET,
-      issuer: AUTHENTIK_URL,
+      clientId: env.AUTHENTIK_CLIENT_ID,
+      clientSecret: env.AUTHENTIK_CLIENT_SECRET,
+      issuer: env.AUTHENTIK_URL,
     }) as Provider
   ],
   callbacks: {
@@ -27,7 +27,7 @@ const config: SvelteKitAuthConfig = {
     }
   },
   trustHost: true,
-  secret: JWT_SECRET,
+  secret: env.JWT_SECRET,
   session: {
     maxAge: 1800 // 30 mins
   }
@@ -36,7 +36,6 @@ const config: SvelteKitAuthConfig = {
 export const auth = SvelteKitAuth(config);
 
 export const userDataHook: Handle = async ({ event, resolve }) => {
-  console.log("hook", event)
   const session = await event.locals.auth();
   const subject = session?.user?.id;
   if (!session || !subject) return await resolve(event);

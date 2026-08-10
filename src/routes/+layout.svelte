@@ -1,7 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 
-	import { PUBLIC_WEBSITE_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN } from "$env/static/public";
+	import { env } from "$env/dynamic/public";
 	import { beforeNavigate, afterNavigate } from "$app/navigation";
 	import { tick } from "svelte";
   import { browser } from "$app/environment";
@@ -73,7 +73,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
+	<script defer data-domain={env.PUBLIC_WEBSITE_DOMAIN} src={`https://${env.PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
 <Navigation loggedIn={data.loggedIn}/>

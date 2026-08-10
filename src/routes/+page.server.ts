@@ -1,4 +1,4 @@
-import { NOTION_DATABASE, NOTION_TOKEN } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import { Client } from "@notionhq/client";
 import { fail } from "@sveltejs/kit"
 
@@ -15,8 +15,8 @@ export const actions = {
 			return fail(400, "Ohne Ihrer Einwilligung kann das Formular nicht abgeschickt werden.");
 		}
 
-		const notion = new Client(({ auth: NOTION_TOKEN }));
-		const database = await notion.databases.retrieve({ database_id: NOTION_DATABASE });
+		const notion = new Client(({ auth: env.NOTION_TOKEN }));
+		const database = await notion.databases.retrieve({ database_id: env.NOTION_DATABASE });
 		if (!("data_sources" in database)) {
 			console.error("Database error");
 			return fail(500, internalServerErrorMessage);

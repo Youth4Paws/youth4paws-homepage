@@ -1,8 +1,8 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { POSTGRES_URL } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 
 export const db = drizzle({ 
   connection: { 
-    connectionString: POSTGRES_URL,
+    connectionString: env.POSTGRES_URL,
   }
 });
