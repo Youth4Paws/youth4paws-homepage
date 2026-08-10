@@ -16,5 +16,12 @@ export default defineConfig({
 	],
 	server: {
 		port: 8080
+	},
+	optimizeDeps: {
+		exclude: [
+			"svelte-codemirror-editor",
+			"codemirror",
+			"@codemirror/lang-markdown",
+		]
 	}
 });

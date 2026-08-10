@@ -3,11 +3,13 @@
 
   interface Props {
     ordered?: boolean;
-    children: Snippet;
+    start?: number;
+    children?: Snippet;
   }
 
 	let {
     ordered = false,
+    start = 1,
     children
   }: Props = $props();
 </script>
@@ -35,11 +37,11 @@
 </style>
 
 {#if ordered}
-  <ol>
-    {@render children()}
+  <ol {start}>
+    {@render children?.()}
   </ol>
 {:else}
   <ul>
-    {@render children()}
+    {@render children?.()}
   </ul>
 {/if}

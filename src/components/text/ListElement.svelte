@@ -1,7 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   import { PawPrint } from "lucide-svelte";
 
-	let { children } = $props();
+	interface Props {
+    children?: Snippet
+    listItemIndex?: number
+  }
+
+  const { children, listItemIndex = undefined }: Props = $props()
 </script>
 
 <style lang="scss">
@@ -40,5 +46,5 @@
   <span class="copy">
     •
   </span>
-  {@render children()}
+  {@render children?.()}
 </li>
