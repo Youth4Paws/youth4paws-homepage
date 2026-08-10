@@ -29,6 +29,9 @@ COPY --from=dependencies /app/node_modules ./node_modules
 COPY --from=build /app/build ./build
 COPY entrypoint.sh drizzle.config.ts ./
 RUN chmod +x ./entrypoint.sh
+RUN mkdir -p ./src/lib/server
+COPY ./src/lib/server/schema.ts ./src/lib/server/
+COPY ./src/lib/types ./src/lib/types
 RUN chown -R bun:bun /app
 USER bun:bun
 ENTRYPOINT [ "/app/entrypoint.sh" ]
