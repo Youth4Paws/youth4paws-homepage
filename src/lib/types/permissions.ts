@@ -1,7 +1,13 @@
 export enum Permission {
 	ManageUsers = "manage_users",
 	ManageContent = "manage_content",
-	ManageInvites = "manage_invites",
 	Developer = "developer",
 	Admin = "admin",
+}
+
+export const permissionNames = {
+	[Permission.ManageUsers]: "Benutzerverwaltung",
+	[Permission.ManageContent]: "Inhaltsverwaltung",
+	[Permission.Developer]: "Entwickler",
+	[Permission.Admin]: "Administrator"
 }
