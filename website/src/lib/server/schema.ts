@@ -1,5 +1,5 @@
 import { boolean, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
-import { Permission } from "$lib/types/permissions";
+import { Permission } from "../types/permissions";
 
 /**
  * @swagger
@@ -11,6 +11,7 @@ import { Permission } from "$lib/types/permissions";
  *         - id
  *         - name
  *         - email
+ *         - active
  *       properties:
  *         id:
  *           type: string
