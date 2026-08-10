@@ -76,7 +76,7 @@
 	<script defer data-domain={PUBLIC_WEBSITE_DOMAIN} src={`https://${PUBLIC_PLAUSIBLE_DOMAIN}/js/script.js`}></script> 
 </svelte:head>
 
-<Navigation loggedIn={data.user}/>
+<Navigation loggedIn={data.loggedIn}/>
 
 <main>
 	{@render children?.()}

@@ -29,6 +29,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth/core": "^0.41.3",
+		"@auth/sveltekit": "^1.11.3",
 		"@lucide/svelte": "^0.563.1",
 		"@notionhq/client": "^5.17.0",
 		"argon2": "^0.44.0",

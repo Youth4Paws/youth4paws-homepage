@@ -26,9 +26,9 @@ import { Permission } from "../types/permissions";
  */
 export const usersTable = pgTable("users", {
   id: uuid().notNull().primaryKey().defaultRandom(),
-  name: varchar({ length: 32 }).notNull().unique(),
-  email: varchar({ length: 128}).notNull().unique(),
-  password: varchar({ length: 256 }).notNull(),
+  oidcSubject: varchar({ length: 256 }).notNull().unique(),
+  name: varchar({ length: 32 }).notNull(),
+  email: varchar({ length: 128}).notNull(),
   active: boolean().notNull(),
 });
 

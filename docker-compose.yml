@@ -1,7 +1,7 @@
 name: youth4paws
 
 services:
-  youth4paws-homepage:
+  homepage:
     container_name: youth4paws-homepage
     ports:
       - "8080:8080"
@@ -15,7 +15,7 @@ services:
       context: website
       dockerfile: Dockerfile
 
-  youth4paws-postgres:
+  postgres:
     image: postgres:16-alpine
     container_name: youth4paws-postgres
     volumes:
