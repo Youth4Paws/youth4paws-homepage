@@ -9,6 +9,7 @@
     disabled?: boolean;
     loading?: boolean;
     accent?: boolean;
+    small?: boolean;
     children: Snippet;
   }
 
@@ -19,6 +20,7 @@
     disabled = false,
     loading = false,
     accent = false,
+    small = false,
     children
   }: Props = $props();
 
@@ -77,13 +79,20 @@
     cursor: pointer;
     user-select: none;
 
-    &:hover, &:focus, &.loading {
-      background-position: calc(-100% - 2 * dimensions.$borderWidth) 0;
-      color: var(--btnHoverColor);
+    &:not(.disabled) {
+      &:hover, &:focus, &.loading {
+        background-position: calc(-100% - 2 * dimensions.$borderWidth) 0;
+        color: var(--btnHoverColor);
+      }
     }
 
-    &:disabled {
+    &.disabled {
       cursor: not-allowed;
+      opacity: 50%;
+    }
+
+    &.small {
+      padding: dimensions.$gapTiny;
     }
   }
 
@@ -99,11 +108,11 @@
 </style>
 
 {#if href !== undefined && href.length > 0}
-  <a href={href} onclick={click} class:disabled class:loading class:accent>
+  <a href={href} onclick={click} class:disabled class:loading class:accent class:small>
     {@render contents()}
   </a>
 {:else}
-  <button disabled={disabled} onclick={click} type={submit ? "submit" : "button"} class:disabled class:loading class:accent>
+  <button disabled={disabled} onclick={click} type={submit ? "submit" : "button"} class:disabled class:loading class:accent class:small>
     {@render contents()}
   </button>
 {/if}
