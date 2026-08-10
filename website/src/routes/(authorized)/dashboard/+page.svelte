@@ -12,10 +12,10 @@
     { name: "Kanban", page: `https://${PUBLIC_VIKUNJA_DOMAIN}`, icon: ListChecks, permissions: [] },
     { name: "Cloud", page: `https://${PUBLIC_NEXTCLOUD_DOMAIN}`, icon: Cloud, permissions: [] },
     { name: "Reach", page: `https://${PUBLIC_PLAUSIBLE_DOMAIN}`, icon: ChartNoAxesCombined, permissions: [] },
-    { name: "Mein Profil", page: "/dashboard/profile", icon: User, permissions: [] },
-    { name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
-    { name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
-    { name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
+    //{ name: "Mein Profil", page: "/dashboard/profile", icon: User, permissions: [] },
+    //{ name: "Benutzer", page: "/dashboard/users", icon: Users, permissions: [ Permission.ManageUsers ] },
+    //{ name: "Partnerschaften", page: "/dashboard/partnerships", icon: Handshake, permissions: [ Permission.ManageContent ] },
+    //{ name: "Projektberichte", page: "/dashboard/reports", icon: FileText, permissions: [ Permission.ManageContent ] },
     { name: "API Docs", page: "/docs", icon: Unplug, permissions: [ Permission.Developer ] },
   ]
 
