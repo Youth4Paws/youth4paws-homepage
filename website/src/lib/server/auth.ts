@@ -26,6 +26,7 @@ const config: SvelteKitAuthConfig = {
       return session;
     }
   },
+  trustHost: true,
   secret: JWT_SECRET,
   session: {
     maxAge: 1800 // 30 mins
@@ -35,6 +36,7 @@ const config: SvelteKitAuthConfig = {
 export const auth = SvelteKitAuth(config);
 
 export const userDataHook: Handle = async ({ event, resolve }) => {
+  console.log("hook", event)
   const session = await event.locals.auth();
   const subject = session?.user?.id;
   if (!session || !subject) return await resolve(event);

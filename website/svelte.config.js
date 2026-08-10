@@ -7,8 +7,9 @@ const config = {
 	kit: {
 		adapter: adapter({
 			precompress: true
-		})
-	}
+		}),
+	},
+	resolution: "server",
 };
 
 export default config;

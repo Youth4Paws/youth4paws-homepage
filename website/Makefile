@@ -6,7 +6,6 @@ run:
 	bun run --bun dev
 
 build:
-	bunx drizzle-kit push
 	bun run --bun build
 
 generate:

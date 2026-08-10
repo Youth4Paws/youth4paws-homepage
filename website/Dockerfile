@@ -15,7 +15,7 @@ RUN bun install
 FROM base AS build
 WORKDIR /app
 RUN apk add make
-COPY Makefile .env .npmrc svelte.config.js tsconfig.json vite.config.ts package.json drizzle.config.ts ./
+COPY Makefile .env .npmrc svelte.config.js tsconfig.json vite.config.ts package.json ./
 COPY static static
 COPY src src
 COPY --from=devdependencies /app/node_modules ./node_modules
@@ -27,5 +27,8 @@ WORKDIR /app
 COPY package.json .
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY --from=build /app/build ./build
+COPY entrypoint.sh drizzle.config.ts ./
+RUN chmod +x ./entrypoint.sh
+RUN chown -R bun:bun /app
 USER bun:bun
-ENTRYPOINT [ "bun", "./build/index.js" ]
+ENTRYPOINT [ "/app/entrypoint.sh" ]
