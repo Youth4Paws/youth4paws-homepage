@@ -24,7 +24,7 @@ import { Permission } from "$lib/types/permissions";
  *       401:
  *         description: Unauthorized
  */
-export const GET: RequestHandler = async ({ locals, params }: RequestEvent) => {
+export const GET: RequestHandler = async ({ locals }: RequestEvent) => {
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
   // Get users
@@ -32,7 +32,6 @@ export const GET: RequestHandler = async ({ locals, params }: RequestEvent) => {
     id: usersTable.id,
     name: usersTable.name,
     email: usersTable.email,
-    active: usersTable.active
   }).from(usersTable);
 
   return json({ users: users });

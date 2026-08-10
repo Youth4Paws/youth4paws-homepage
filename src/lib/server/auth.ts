@@ -45,7 +45,6 @@ export const userDataHook: Handle = async ({ event, resolve }) => {
     id: usersTable.id,
     name: usersTable.name,
     email: usersTable.email,
-    active: usersTable.active
   }).from(usersTable).where(eq(
     usersTable.oidcSubject, subject
   ));

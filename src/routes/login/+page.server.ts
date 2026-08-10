@@ -15,7 +15,7 @@ export const load = async ({ locals, url }) => {
 
   await db.transaction(async (tx) => {
     // Check if user already exists in the database
-    const rows = (await db.select({ id: usersTable.id, active: usersTable.active }).from(usersTable).where(eq(usersTable.oidcSubject, subject)).limit(1));
+    const rows = (await db.select({ id: usersTable.id }).from(usersTable).where(eq(usersTable.oidcSubject, subject)).limit(1));
     let userEntry = rows.length === 1 ? rows[0] : null;
 
     // If the user entry does not yet exist, create it
@@ -28,10 +28,8 @@ export const load = async ({ locals, url }) => {
         oidcSubject: subject,
         name: name,
         email: email,
-        active: true
       }).returning({
         id: usersTable.id,
-        active: usersTable.active,
       });
       if (resp.length !== 0) userEntry = resp[0];
       if (!userEntry) {
