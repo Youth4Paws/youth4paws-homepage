@@ -8,6 +8,7 @@
   import ListElement from "../../../../../components/text/ListElement.svelte";
   import type { MarkedExtension } from 'marked'
   import StylizedTextLogo from "../../../../../components/decoration/StylizedTextLogo.svelte";
+  import Bold from "../../../../../components/text/Bold.svelte";
 
   let value = $state("hello");
 
@@ -17,6 +18,7 @@
     heading: MarkdownHeading,
     listItem: ListElement,
     list: List,
+    strong: Bold,
   }
 
   const y4pextension: MarkedExtension = ({
