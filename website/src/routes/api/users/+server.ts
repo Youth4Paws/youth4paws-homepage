@@ -3,7 +3,7 @@ import type { RequestEvent, RequestHandler } from "./$types";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { usersTable } from "$lib/server/schema";
-import { Permission } from "../../../../types/permissions";
+import { Permission } from "$lib/types/permissions";
 
 /**
  * @swagger
@@ -25,7 +25,6 @@ import { Permission } from "../../../../types/permissions";
  *         description: Unauthorized
  */
 export const GET: RequestHandler = async ({ locals, params }: RequestEvent) => {
-  // @ts-ignore
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
   // Get users

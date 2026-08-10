@@ -1,10 +1,10 @@
 import { fail, redirect } from "@sveltejs/kit";
-import { db } from '../../lib/server/db';
-import { permissionsTable, usersTable } from '../../lib/server/schema';
-import { hashPassword, setAuthCookie } from "../../lib/server/auth";
-import { getRedirectPage } from "../../lib/common/parsing";
+import { db } from '$lib/server/db';
+import { permissionsTable, usersTable } from '$lib/server/schema';
+import { hashPassword, setAuthCookie } from "$lib/server/auth";
+import { getRedirectPage } from "$lib/common/parsing";
 import { eq, or } from "drizzle-orm";
-import { Permission } from "../../types/permissions";
+import { Permission } from "$lib/types/permissions";
 
 export const actions = {
 	default: async ({ cookies, request, url }) => {

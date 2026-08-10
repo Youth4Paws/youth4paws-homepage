@@ -4,7 +4,7 @@ import { checkUserPermissions } from "$lib/common/permissions";
 import { db } from "$lib/server/db";
 import { permissionsTable, usersTable } from "$lib/server/schema";
 import { eq } from "drizzle-orm";
-import { Permission } from "../../../../../../types/permissions";
+import { Permission } from "$lib/types/permissions";
 import { isValidUUID } from "$lib/common/validation";
 
 /**
@@ -39,7 +39,6 @@ import { isValidUUID } from "$lib/common/validation";
  *         description: User does not exist
  */
 export const GET: RequestHandler = async ({ locals, params }: RequestEvent) => {
-  // @ts-ignore
   if (!checkUserPermissions([ Permission.ManageUsers ], locals.permissions)) return error(401);
 
   // Check if the supplied ID is a valid UUID

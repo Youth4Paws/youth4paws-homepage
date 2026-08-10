@@ -37,6 +37,7 @@
 		"jsonwebtoken": "^9.0.3",
 		"lucide-svelte": "^0.545.0",
 		"pg": "^8.22.0",
+		"svelte-guard": "^1.1.1",
 		"swagger-ui-dist": "^5.32.12"
 	}
 }

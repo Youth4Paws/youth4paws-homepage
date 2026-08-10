@@ -1,9 +1,9 @@
 <script>
-  import Paragraph from "../../components/layout/Paragraph.svelte";
-  import Section from "../../components/layout/Section.svelte";
-    import Bold from "../../components/text/Bold.svelte";
-    import List from "../../components/text/List.svelte";
-    import ListElement from "../../components/text/ListElement.svelte";
+  import Paragraph from "../../../components/layout/Paragraph.svelte";
+  import Section from "../../../components/layout/Section.svelte";
+  import Bold from "../../../components/text/Bold.svelte";
+  import List from "../../../components/text/List.svelte";
+  import ListElement from "../../../components/text/ListElement.svelte";
 </script>
 
 <Section title="Datenschutz">

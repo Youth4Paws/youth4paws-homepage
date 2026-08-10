@@ -3,7 +3,7 @@
   import Section from "../../../components/layout/Section.svelte";
   import { ChartNoAxesCombined, Cloud, FileText, Handshake, ListChecks, Unplug, User } from "@lucide/svelte";
   import { PUBLIC_NEXTCLOUD_DOMAIN, PUBLIC_PLAUSIBLE_DOMAIN, PUBLIC_VIKUNJA_DOMAIN, PUBLIC_WEBSITE_DOMAIN } from "$env/static/public";
-  import { Permission } from "../../../types/permissions";
+  import { Permission } from "$lib/types/permissions";
   import { checkUserPermissions } from "../../../lib/common/permissions";
 
 	let { data } = $props();

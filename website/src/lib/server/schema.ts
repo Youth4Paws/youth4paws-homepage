@@ -1,5 +1,5 @@
 import { boolean, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
-import { Permission } from "../../types/permissions";
+import { Permission } from "$lib/types/permissions";
 
 /**
  * @swagger
@@ -28,7 +28,7 @@ export const usersTable = pgTable("users", {
   name: varchar({ length: 32 }).notNull().unique(),
   email: varchar({ length: 128}).notNull().unique(),
   password: varchar({ length: 256 }).notNull(),
-  active: boolean(),
+  active: boolean().notNull(),
 });
 
 export const permissionEnum = pgEnum('permission', Object.values(Permission) as [string, ...string[]]);
