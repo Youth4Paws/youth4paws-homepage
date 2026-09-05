@@ -32,6 +32,9 @@ export const GET: RequestHandler = async ({ locals }: RequestEvent) => {
     id: usersTable.id,
     name: usersTable.name,
     email: usersTable.email,
+    firstName: usersTable.firstName,
+    lastName: usersTable.lastName,
+    nickname: usersTable.nickname
   }).from(usersTable);
 
   return json({ users: users });
