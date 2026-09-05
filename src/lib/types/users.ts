@@ -2,7 +2,7 @@ export type User = {
   id: string,
   name: string,
   email: string,
-  firstName: string | null,
-  lastName: string | null,
-  nickname: string | null,
+  firstName?: string,
+  lastName?: string,
+  nickname?: string,
 }
