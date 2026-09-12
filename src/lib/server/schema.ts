@@ -75,6 +75,11 @@ export const permissionsTable = pgTable("permissions", {
  *         id:
  *           type: string
  *           format: uuid
+ *         name:
+ *           type: string 
+ *         description:
+ *           type: string 
+ *           nullable: true
  *         extension:
  *           type: string
  *           nullable: true
@@ -93,8 +98,10 @@ export const filesTable = pgTable("files", {
   uploader: uuid().references((): AnyPgColumn => usersTable.id, { onDelete: "set null" }),
   uploadDate: timestamp().notNull().defaultNow(),
   public: boolean().default(true),
+  displayName: varchar({ length: 128 }).notNull(),
   originalName: varchar({ length: 128 }).notNull(),
   extension: varchar({ length: 16 }),
+  description: varchar({ length: 512 }),
   hash: bytea().notNull(),
   content: bytea().notNull(),
 });
