@@ -1,4 +1,4 @@
-import { boolean, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, bytea, pgEnum, pgTable, primaryKey, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { Permission } from "../types/permissions";
 
 /**
@@ -48,3 +48,43 @@ export const permissionsTable = pgTable("permissions", {
 }, (table) => [
   primaryKey({ columns: [table.userId, table.permission] }),
 ])
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     file:
+ *       type: object
+ *       required:
+ *         - id
+ *         - extension
+ *         - uploader
+ *         - uploadDate
+ *         - public
+ *       properties:
+ *         id:
+ *           type: string
+ *           format: uuid
+ *         extension:
+ *           type: string
+ *           nullable: true
+ *         uploader:
+ *           type: string
+ *           format: uuid
+ *           nullable: true
+ *         uploadDate:
+ *           type: string
+ *           format: date-time
+ *         public:
+ *           type: boolean
+ */
+export const filesTable = pgTable("files", {
+  id: uuid().notNull().primaryKey().defaultRandom(),
+  uploader: uuid().references(() => usersTable.id, { onDelete: "set null" }),
+  uploadDate: timestamp().notNull().defaultNow(),
+  public: boolean().default(true),
+  originalName: varchar({ length: 128 }).notNull(),
+  extension: varchar({ length: 16 }),
+  hash: bytea().notNull(),
+  content: bytea().notNull(),
+});
