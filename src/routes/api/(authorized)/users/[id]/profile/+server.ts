@@ -7,7 +7,12 @@ import { isValidUUID } from "$lib/common/validation";
 
 const MAX_FIELD_LENGTH = 64;
 
-const EDITABLE_FIELDS = ["firstName", "lastName", "nickname", "profilePicture"] as const;
+const EDITABLE_FIELDS = [
+  usersTable.firstName.name,
+  usersTable.lastName.name,
+  usersTable.nickname.name,
+  usersTable.profilePicture.name
+] as const;
 type EditableField = typeof EDITABLE_FIELDS[number];
 
 function parseValue(value: unknown): string | null {

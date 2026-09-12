@@ -7,6 +7,12 @@ import { eq } from "drizzle-orm";
 import { checkUserPermissions } from "$lib/common/permissions";
 import { Permission } from "$lib/types/permissions";
 
+const EDITABLE_FIELDS = [
+  filesTable.displayName.name,
+  filesTable.description.name,
+] as const;
+type EditableField = typeof EDITABLE_FIELDS[number];
+
 /**
  * @swagger
  * /api/files/{id}:
@@ -219,7 +225,7 @@ export const PATCH: RequestHandler = async ({ locals, request, params }: Request
 
   // Parse values
   const form = await request.formData();
-  const updates: Partial<Record<"displayName" | "description" , string>> = {};
+  const updates: Partial<Record<EditableField, string>> = {};
 
   const newName = form.get("name");
   const newDesc = form.get("description");
