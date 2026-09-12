@@ -1,4 +1,4 @@
-import { boolean, bytea, pgEnum, pgTable, primaryKey, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, bytea, foreignKey, pgEnum, pgTable, primaryKey, timestamp, uuid, varchar, type AnyPgColumn } from "drizzle-orm/pg-core";
 import { Permission } from "../types/permissions";
 
 /**
@@ -29,6 +29,10 @@ import { Permission } from "../types/permissions";
  *         nickname:
  *           type: string
  *           nullable: true
+ *         profilePicture:
+ *           type: string
+ *           format: uuid
+ *           nullable: true
  */
 export const usersTable = pgTable("users", {
   id: uuid().notNull().primaryKey().defaultRandom(),
@@ -38,7 +42,13 @@ export const usersTable = pgTable("users", {
   firstName: varchar({ length: 64 }),
   lastName: varchar({ length: 64 }),
   nickname: varchar({ length: 64 }),
-});
+  profilePicture: uuid(),
+}, (users) => ({
+  fk: foreignKey({
+    columns: [users.profilePicture],
+    foreignColumns: [filesTable.id],
+  }).onUpdate("cascade").onDelete("set null"), // https://github.com/drizzle-team/drizzle-orm/discussions/396
+}));
 
 export const permissionEnum = pgEnum('permission', Object.values(Permission) as [string, ...string[]]);
 
@@ -80,7 +90,7 @@ export const permissionsTable = pgTable("permissions", {
  */
 export const filesTable = pgTable("files", {
   id: uuid().notNull().primaryKey().defaultRandom(),
-  uploader: uuid().references(() => usersTable.id, { onDelete: "set null" }),
+  uploader: uuid().references((): AnyPgColumn => usersTable.id, { onDelete: "set null" }),
   uploadDate: timestamp().notNull().defaultNow(),
   public: boolean().default(true),
   originalName: varchar({ length: 128 }).notNull(),

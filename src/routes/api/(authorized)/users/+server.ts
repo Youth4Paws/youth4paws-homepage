@@ -34,7 +34,8 @@ export const GET: RequestHandler = async ({ locals }: RequestEvent) => {
     email: usersTable.email,
     firstName: usersTable.firstName,
     lastName: usersTable.lastName,
-    nickname: usersTable.nickname
+    nickname: usersTable.nickname,
+    profilePicture: usersTable.profilePicture,
   }).from(usersTable);
 
   return json({ users: users });

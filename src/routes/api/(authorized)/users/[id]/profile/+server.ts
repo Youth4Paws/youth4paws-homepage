@@ -7,7 +7,7 @@ import { isValidUUID } from "$lib/common/validation";
 
 const MAX_FIELD_LENGTH = 64;
 
-const EDITABLE_FIELDS = ["firstName", "lastName", "nickname"] as const;
+const EDITABLE_FIELDS = ["firstName", "lastName", "nickname", "profilePicture"] as const;
 type EditableField = typeof EDITABLE_FIELDS[number];
 
 function parseValue(value: unknown): string | null {
@@ -22,7 +22,7 @@ function parseValue(value: unknown): string | null {
  * @swagger
  * /api/user/{id}/profile:
  *   patch:
- *     summary: Update one or more of your own profile fields (firstName, lastName and/or nickname)
+ *     summary: Update one or more of your own profile fields (firstName, lastName, nickname, profilePicture)
  *     tags:
  *       - users
  *     parameters:
@@ -45,6 +45,9 @@ function parseValue(value: unknown): string | null {
  *                 type: string
  *               nickname:
  *                 type: string
+ *               profilePicture:
+ *                 type: string
+ *                 format: uuid
  *     responses:
  *       200:
  *         description: Success
@@ -52,6 +55,8 @@ function parseValue(value: unknown): string | null {
  *         description: Malformed ID, or an invalid or empty set of fields
  *       401:
  *         description: Unauthorized (not logged in, or id does not match your own account)
+ *       500:
+ *         description: Could not update user profile (for example, if an invalid pfp id is supplied)
  */
 export const PATCH: RequestHandler = async ({ locals, params, request }: RequestEvent) => {
   // Check if supplied ID is valid UUID
