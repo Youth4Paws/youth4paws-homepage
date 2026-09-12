@@ -1,0 +1,2 @@
+ALTER TABLE "users" ADD COLUMN "profilePicture" uuid;--> statement-breakpoint
+ALTER TABLE "users" ADD CONSTRAINT "users_profilePicture_files_id_fkey" FOREIGN KEY ("profilePicture") REFERENCES "files"("id") ON DELETE SET NULL ON UPDATE CASCADE;

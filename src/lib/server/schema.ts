@@ -1,4 +1,4 @@
-import { boolean, pgEnum, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, bytea, foreignKey, pgEnum, pgTable, primaryKey, timestamp, uuid, varchar, type AnyPgColumn } from "drizzle-orm/pg-core";
 import { Permission } from "../types/permissions";
 
 /**
@@ -29,6 +29,10 @@ import { Permission } from "../types/permissions";
  *         nickname:
  *           type: string
  *           nullable: true
+ *         profilePicture:
+ *           type: string
+ *           format: uuid
+ *           nullable: true
  */
 export const usersTable = pgTable("users", {
   id: uuid().notNull().primaryKey().defaultRandom(),
@@ -38,7 +42,13 @@ export const usersTable = pgTable("users", {
   firstName: varchar({ length: 64 }),
   lastName: varchar({ length: 64 }),
   nickname: varchar({ length: 64 }),
-});
+  profilePicture: uuid(),
+}, (users) => ({
+  fk: foreignKey({
+    columns: [users.profilePicture],
+    foreignColumns: [filesTable.id],
+  }).onUpdate("cascade").onDelete("set null"), // https://github.com/drizzle-team/drizzle-orm/discussions/396
+}));
 
 export const permissionEnum = pgEnum('permission', Object.values(Permission) as [string, ...string[]]);
 
@@ -48,3 +58,50 @@ export const permissionsTable = pgTable("permissions", {
 }, (table) => [
   primaryKey({ columns: [table.userId, table.permission] }),
 ])
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     file:
+ *       type: object
+ *       required:
+ *         - id
+ *         - extension
+ *         - uploader
+ *         - uploadDate
+ *         - public
+ *       properties:
+ *         id:
+ *           type: string
+ *           format: uuid
+ *         name:
+ *           type: string 
+ *         description:
+ *           type: string 
+ *           nullable: true
+ *         extension:
+ *           type: string
+ *           nullable: true
+ *         uploader:
+ *           type: string
+ *           format: uuid
+ *           nullable: true
+ *         uploadDate:
+ *           type: string
+ *           format: date-time
+ *         public:
+ *           type: boolean
+ */
+export const filesTable = pgTable("files", {
+  id: uuid().notNull().primaryKey().defaultRandom(),
+  uploader: uuid().references((): AnyPgColumn => usersTable.id, { onDelete: "set null" }),
+  uploadDate: timestamp().notNull().defaultNow(),
+  public: boolean().default(true),
+  displayName: varchar({ length: 128 }).notNull(),
+  originalName: varchar({ length: 128 }).notNull(),
+  extension: varchar({ length: 16 }),
+  description: varchar({ length: 512 }),
+  hash: bytea().notNull(),
+  content: bytea().notNull(),
+});
