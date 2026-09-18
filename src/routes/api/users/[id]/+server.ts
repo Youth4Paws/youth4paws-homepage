@@ -10,7 +10,7 @@ import { and } from "drizzle-orm";
 
 /**
  * @swagger
- * /api/user/{id}:
+ * /api/users/{id}:
  *   delete:
  *     summary: Delete user account
  *     tags:

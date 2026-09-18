@@ -9,7 +9,7 @@ import { isValidUUID } from "$lib/common/validation";
 
 /**
  * @swagger
- * /api/user/{id}/permissions/{permission}:
+ * /api/users/{id}/permissions/{permission}:
  *   put:
  *     summary: Grant a permission to a user
  *     tags:
@@ -74,7 +74,7 @@ export const PUT: RequestHandler = async ({ locals, params }: RequestEvent) => {
 
 /**
  * @swagger
- * /api/user/{id}/permissions/{permission}:
+ * /api/users/{id}/permissions/{permission}:
  *   delete:
  *     summary: Revoke a permission from a user
  *     tags:

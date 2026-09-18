@@ -20,7 +20,7 @@ function parseValue(value: unknown): string | null {
 
 /**
  * @swagger
- * /api/user/{id}/profile:
+ * /api/users/{id}/profile:
  *   patch:
  *     summary: Update one or more of your own profile fields (firstName, lastName and/or nickname)
  *     tags:

@@ -9,7 +9,7 @@ import { isValidUUID } from "$lib/common/validation";
 
 /**
  * @swagger
- * /api/user/{id}/permissions:
+ * /api/users/{id}/permissions:
  *   get:
  *     summary: List user permissions
  *     tags:
